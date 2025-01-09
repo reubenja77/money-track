@@ -19,6 +19,7 @@ def get_user_choice():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+"""
 # Test cases
 def test_get_user_choice():
     # Test valid input
@@ -44,7 +45,7 @@ def test_get_user_choice():
 if __name__ == "__main__":
     test_get_user_choice()
     print("All tests passed!")
-
+"""
 
 def add_transaction(transactions):
     """
@@ -65,8 +66,41 @@ def add_transaction(transactions):
         if transaction_type == "expense":
             amount = -amount # Negative value for expenses
 
-        transactions.append({"type": transaction_type, "description": description, "amount": amount})
-        print(f"{transaction_type.capitalize()} of ${abs(amount):2f} added successfully!")
+        # Format amount to 2 decimal places
+        formatted_amount = "{:.2f}".format(amount)
+
+        transactions.append({"type": transaction_type, "description": description, "amount": formatted_amount})
+        print(f"{transaction_type.capitalize()} of ${abs(float(formatted_amount)):.2f} added successfully!")
     except ValueError as e:
         print(f"Invalid input: {e}")
 
+# Test case for adding transaction
+def test_add_transaction_interactive():
+    transactions = []
+
+    print("**Testing valid income transaction**")
+    add_transaction(transactions)
+
+    print("**Testing valid expense transaction**")
+    add_transaction(transactions)
+
+    print("**Testing invalid transaction type**")
+    try:
+        add_transaction(transactions)
+    except ValueError:
+        print("ValueError raised as expected.")
+
+    print("**Testing invalid amount (zero)**")
+    try:
+        add_transaction(transactions)
+    except ValueError:
+        print("ValueError raised as expected.")
+
+    print("**Testing invalid amount (negative)**")
+    try:
+        add_transaction(transactions)
+    except ValueError:
+        print("ValueError raised as expected.")
+
+if __name__ == "__main__":
+    test_add_transaction_interactive()

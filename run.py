@@ -74,6 +74,7 @@ def add_transaction(transactions):
     except ValueError as e:
         print(f"Invalid input: {e}")
 
+"""
 # Test case for adding transaction
 def test_add_transaction_interactive():
     transactions = []
@@ -104,3 +105,19 @@ def test_add_transaction_interactive():
 
 if __name__ == "__main__":
     test_add_transaction_interactive()
+"""
+
+def view_transactions(transactions):
+    """
+    Display all recorded transactions
+
+    Args:
+        transactions (list): List of transaction records.
+    """
+    if not transactions:
+        print("No transactions recorded yet.")
+        return
+    print("Recorded Transactions:\n")
+    for i, transaction in enumerate(transactions, 1):
+        t_type = transaction["type"].capitalize()
+        print(f"{i}. {t_type}: {transaction['description']} - ${abs(float(transaction['formatted_amount'])):.2f}")

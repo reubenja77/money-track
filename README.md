@@ -26,6 +26,7 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 
 
 ## Bugs
+- 
 
 
 

@@ -19,6 +19,33 @@ def get_user_choice():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+# Test cases
+def test_get_user_choice():
+    # Test valid input
+    assert get_user_choice() == 1  # Assuming User enters "1"
+    assert get_user_choice() == 2  # Assuming user enters "2"
+    assert get_user_choice() == 3  # Assuming User enters "3"
+    assert get_user_choice() == 4  # Assuming User enters "4"
+
+    # Test invalid input (out of range)
+    try:
+        get_user_choice() # Assuming user enters "5"
+        assert False, "Expected ValueError for invalid input"
+    except ValueError:
+        pass
+
+    # Test invalid input (non-numeric)
+    try:
+        get_user_choice() # Assuming user enters "a"
+        assert False, "Expected ValueError for non-numeric input"
+    except ValueError:
+        pass
+
+if __name__ == "__main__":
+    test_get_user_choice()
+    print("All tests passed!")
+
+
 def add_transaction(transactions):
     """
     Add an income or expense tranaction.
@@ -42,3 +69,4 @@ def add_transaction(transactions):
         print(f"{transaction_type.capitalize()} of ${abs(amount):2f} added successfully!")
     except ValueError as e:
         print(f"Invalid input: {e}")
+

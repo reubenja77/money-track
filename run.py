@@ -19,3 +19,26 @@ def get_user_choice():
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+def add_transaction(transactions):
+    """
+    Add an income or expense tranaction.
+
+    Args:
+        transactions (list): List of transaction records.
+    """
+    try:
+        transaction_type = input("Enter 'income' or 'expense':\n").strip().lower()
+        if transaction_type not in ["income", "expense"]:
+            raise ValueError("Transaction. type must be 'income' or 'expense'.")
+        description = input("Enter the transaction description:\n").strip()
+        amount = float(input("Enter the amount:\n"))
+        if amount <= 0:
+            raise ValueError("Amount must be greater then 0.")
+
+        if transaction_type == "expense":
+            amount = -amount # Negative value for expenses
+
+        transactions.append({"type": transaction_type, "description": description, "amount": amount})
+        print(f"{transaction_type.capitalize()} of ${abs(amount):2f} added successfully!")
+    except ValueError as e:
+        print(f"Invalid input: {e}")

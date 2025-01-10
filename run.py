@@ -1,3 +1,4 @@
+# Money Tracker (Income and Expense Tracker)
 def get_user_choice():
     """
     Display menu options and return user's choice.
@@ -18,34 +19,6 @@ def get_user_choice():
                 print("Invalid choice. Please enter a number between 1 and 4.")
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-
-"""
-# Test cases
-def test_get_user_choice():
-    # Test valid input
-    assert get_user_choice() == 1  # Assuming User enters "1"
-    assert get_user_choice() == 2  # Assuming user enters "2"
-    assert get_user_choice() == 3  # Assuming User enters "3"
-    assert get_user_choice() == 4  # Assuming User enters "4"
-
-    # Test invalid input (out of range)
-    try:
-        get_user_choice() # Assuming user enters "5"
-        assert False, "Expected ValueError for invalid input"
-    except ValueError:
-        pass
-
-    # Test invalid input (non-numeric)
-    try:
-        get_user_choice() # Assuming user enters "a"
-        assert False, "Expected ValueError for non-numeric input"
-    except ValueError:
-        pass
-
-if __name__ == "__main__":
-    test_get_user_choice()
-    print("All tests passed!")
-"""
 
 def add_transaction(transactions):
     """
@@ -75,38 +48,6 @@ def add_transaction(transactions):
         print(f"Invalid input: {e}")
 
 
-# Test case for adding transaction
-def test_add_transaction_interactive():
-    transactions = []
-
-    print("**Testing valid income transaction**")
-    add_transaction(transactions)
-
-    print("**Testing valid expense transaction**")
-    add_transaction(transactions)
-
-    print("**Testing invalid transaction type**")
-    try:
-        add_transaction(transactions)
-    except ValueError:
-        print("ValueError raised as expected.")
-
-    print("**Testing invalid amount (zero)**")
-    try:
-        add_transaction(transactions)
-    except ValueError:
-        print("ValueError raised as expected.")
-
-    print("**Testing invalid amount (negative)**")
-    try:
-        add_transaction(transactions)
-    except ValueError:
-        print("ValueError raised as expected.")
-
-if __name__ == "__main__":
-    test_add_transaction_interactive()
-
-
 def view_transactions(transactions):
     """
     Display all recorded transactions
@@ -122,32 +63,6 @@ def view_transactions(transactions):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: {transaction['description']} - ${abs(float(transaction['formatted_amount'])):.2f}")
 
-# Test case for view transaction
-def test_view_transactions_interactive():
-    transactions = []
-
-    # Test empty transactions list
-    print("**Testing empty transactions list:\n**")
-    view_transactions(transactions)
-
-    # Add sample transaction
-    transactions.append({
-        "type": "income",
-        "description": "Salary",
-        "formatted_amount": "1000.50"
-    })
-    transactions.append({
-        "type": "expense",
-        "description": "Groceries",
-        "formatted_amount": "-50.25"
-    })
-
-    print("**Testing transactions with data\n**")
-    view_transactions(transactions)
-
-if __name__ == "__main__":
-    test_view_transactions_interactive()
-
 
 def check_balance(transactions):
     """
@@ -158,3 +73,26 @@ def check_balance(transactions):
     """
     balance = sum(transaction[formatted_amount] for transaction in transactions)
     print(f"Current Balance: ${balance:.2f}\n")
+
+
+def main():
+    """
+    Main function to run the income and expense tracker.
+    Chains other functions to provide functionality.
+    """
+    transactions = []
+    while True:
+        choice = get_user_choice()
+        if choice == 1:
+            add_transaction(transactions)
+        elif choice == 2:
+            view_transactions(transactions)
+        elif choice === 3:
+            check_balance(transactions)
+        elif choice == 4:
+            print("Exiting the Income Money Tracker. Goodbye!")
+            break
+
+# Run program
+if __name__ == "__main__":
+    main()

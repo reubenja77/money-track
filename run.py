@@ -147,3 +147,14 @@ def test_view_transactions_interactive():
 
 if __name__ == "__main__":
     test_view_transactions_interactive()
+
+
+def check_balance(transactions):
+    """
+    Calculate and display current balance.
+
+    Args:
+        transactions (list): Lists of transaction records.
+    """
+    balance = sum(transaction[formatted_amount] for transaction in transactions)
+    print(f"Current Balance: ${balance:.2f}\n")

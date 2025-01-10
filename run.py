@@ -47,7 +47,6 @@ def add_transaction(transactions):
     except ValueError as e:
         print(f"Invalid input: {e}")
 
-
 def view_transactions(transactions):
     """
     Display all recorded transactions
@@ -63,7 +62,6 @@ def view_transactions(transactions):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: {transaction['description']} - ${abs(float(transaction['formatted_amount'])):.2f}")
 
-
 def check_balance(transactions):
     """
     Calculate and display current balance.
@@ -71,9 +69,8 @@ def check_balance(transactions):
     Args:
         transactions (list): Lists of transaction records.
     """
-    balance = sum(transaction[formatted_amount] for transaction in transactions)
+    balance = sum(float(transaction["amount"]) for transaction in transactions)
     print(f"Current Balance: ${balance:.2f}\n")
-
 
 def main():
     """

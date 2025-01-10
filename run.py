@@ -87,7 +87,7 @@ def main():
             add_transaction(transactions)
         elif choice == 2:
             view_transactions(transactions)
-        elif choice === 3:
+        elif choice == 3:
             check_balance(transactions)
         elif choice == 4:
             print("Exiting the Income Money Tracker. Goodbye!")

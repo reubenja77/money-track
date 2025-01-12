@@ -49,6 +49,7 @@ def add_transaction(transactions):
         transaction_type = input("\nEnter 'income' or 'expense':\n").strip().lower()
         if transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'.")
+        description = input("Enter the transaction description:\n").strip()
         category = input("\nEnter the transaction category (e.g., 'Salary', 'Rent', 'Food'):\n").strip()
         amount = float(input("\nEnter the amount:\n"))
         if amount <= 0:

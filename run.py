@@ -62,7 +62,8 @@ def add_transaction(transactions):
 
         # Append the new transaction with all fields
         transactions.append({
-            "type": transaction_type, 
+            "type": transaction_type,
+            "description": description, 
             "category": category, 
             "amount": formatted_amount,
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -98,6 +99,18 @@ def check_balance(transactions):
     print(f"Current Balance: ${balance:.2f}\n")
 
 def view_transactions_by_category(transactions):
+    """
+    Display transactions filtered by a specific category.
+
+    Args:
+        transactions (list): List of transaction dictionaries.
+
+    This functions prompts users to enter a category and then filters the
+    provided transactions list to include only those transactions that
+    match the specified category.
+    If no matching transactions are found, an appropriate message is displayed.
+    Otherwise, the filtered transactions are displayed with their details.
+    """
     category = input("Enter the category to filter by:\n").strip()
     filtered_transactions = [t for t in transactions if t["category"].lower() == category.lower()]
     if not filtered_transactions:
@@ -109,6 +122,18 @@ def view_transactions_by_category(transactions):
         print(f"{i}. {t_type}: {transaction['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
 
 def generate_monthly_report(transactions):
+    """
+    Generates a monthly summary of income and expenses.
+
+    Args:
+        transactions list: List of transaction dictionaries.
+    
+    This function calculates and displays the total income and expenses
+    for each month recorded in the transactions history.
+    It iterates through the transactions, groups then by month
+    (YYYY-MM), and calculates the sum of amounts for each month.
+    Finally, it displays the monthly summary in a user-friendly format.
+    """
     monthly_summary = {}
     for transaction in transactions:
         month = transaction["timestamp"][1:7] # Exact YYYY-MM
@@ -120,6 +145,20 @@ def generate_monthly_report(transactions):
         print(f"{month}: ${total:.2f}")
 
 def delete_transaction(transactions):
+    """
+    Deletes a specified transaction from the list of transactions.
+
+    Args:
+        transactions (list): List of transaction dictionaries.
+
+    This functions first displays the list of transactions to the user.
+    Then, it prompts the user to enter the number of the transaction
+    they wish to delete.
+    If a valid transaction number is provided, the corresponding
+    transaction is removed from the list.
+    The function includes input validation and error handling
+    to ensure a smooth and safe deletion process.
+    """
     view_transactions(transactions)
     try:
         choice = int(input("Enter the number of the transaction to delete:\n")) - 1

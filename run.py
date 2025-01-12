@@ -32,6 +32,7 @@ def add_transaction(transactions):
         if transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'.")
         description = input("Enter the transaction description:\n").strip()
+        category = input("Enter the transaction category (e.g., 'Rent', 'Groceries'):\n").strip()
         amount = float(input("Enter the amount:\n"))
         if amount <= 0:
             raise ValueError("Amount must be greater then 0.")
@@ -60,7 +61,7 @@ def view_transactions(transactions):
     print("Recorded Transactions:\n")
     for i, transaction in enumerate(transactions, 1):
         t_type = transaction["type"].capitalize()
-        print(f"{i}. {t_type}: {transaction['description']} - ${abs(float(transaction['amount'])):.2f}")
+        print(f"{i}. {t_type}: {transaction['description']} - Category: {transaction['category']} - ${abs(float(transaction['amount'])):.2f}")
 
 def check_balance(transactions):
     """

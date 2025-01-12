@@ -63,12 +63,13 @@ def add_transaction(transactions):
         transactions.append({
             "type": transaction_type, 
             "category": category, 
-            "amount": formatted_amount
+            "amount": formatted_amount,
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
+        save_transactions(transaction)
         print(f"\n{transaction_type.capitalize()} of ${abs(float(formatted_amount)):.2f} added successfully!")
     except ValueError as e:
         print(f"Invalid input: {e}")
-        print("Category")
 
 def view_transactions(transactions):
     """
@@ -95,21 +96,34 @@ def check_balance(transactions):
     balance = sum(float(transaction["amount"]) for transaction in transactions)
     print(f"Current Balance: ${balance:.2f}\n")
 
+def view_transactions_by_category(transactions):
+    category = input("Enter the category to filter by:\n").strip()
+    filtered_transactions = [t for t in transactions if t["category"].lower() == category.lower()]
+    if not filtered_transactions:
+        print(f"\nNo transactions found for category: {category}")
+        return
+    print(f"Transactions for category '{category}':\n")
+    for i, transaction in enumerate(filtered_transactions, 1):
+        t_type = transaction["type"].capitalize()
+        print(f"{i}. {t_type}: {transactions['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
+
 def main():
     """
     Main function to run the income and expense tracker.
     Chains other functions to provide functionality.
     """
-    transactions = []
+    transactions = load_transactions()
     while True:
         choice = get_user_choice()
         if choice == 1:
             add_transaction(transactions)
         elif choice == 2:
-            view_transactions(transactions)
+            view_transactions_by_category(transactions)
         elif choice == 3:
             check_balance(transactions)
         elif choice == 4:
+            generate_monthly_report(transactions)
+        elif choice == 5:
             print("\nExiting the Income Money Tracker. Goodbye!")
             break
 

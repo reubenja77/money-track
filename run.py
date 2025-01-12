@@ -118,7 +118,8 @@ def view_transactions_by_category(transactions):
     print(f"Transactions for category '{category}':\n")
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
-        print(f"{i}. {t_type}: ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
+        amount = float(transaction["amount"]) # Ensure amount is a float
+        print(f"{i}. {t_type}: ${abs(amount):.2f} - Date: {transaction['timestamp']}")
 
 def generate_monthly_report(transactions):
     """

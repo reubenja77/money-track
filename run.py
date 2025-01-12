@@ -101,7 +101,7 @@ def view_transactions_by_category(transactions):
     category = input("Enter the category to filter by:\n").strip()
     filtered_transactions = [t for t in transactions if t["category"].lower() == category.lower()]
     if not filtered_transactions:
-        print(f"\nNo transactions found for category: {category}")
+        print(f"No transactions found for category: {category}")
         return
     print(f"Transactions for category '{category}':\n")
     for i, transaction in enumerate(filtered_transactions, 1):
@@ -118,6 +118,19 @@ def generate_monthly_report(transactions):
     print("Monthly Report:\n")
     for month, total in sorted(monthly_summary.items()):
         print(f"{month}: ${total:.2f}")
+
+def delete_transaction(transactions):
+    view_transactions(transactions)
+    try:
+        choice = int(input("Enter the number of the transaction to delete:\n")) - 1
+        if 0 <= choice < len(transactions):
+            delete = transactions.pop(choice)
+            save_transactions(transactions)
+            print(f"Deleted transaction: {deleted['description']} - ${abs(delete['amount']):.2f}")
+        else:
+            print("Invalid choice")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
 
 def main():
     """
@@ -138,6 +151,8 @@ def main():
         elif choice == 5:
             generate_monthly_report(transactions)
         elif choice == 6:
+            delete_transaction(transactions)
+        elif choice == 7:
             print("\nExiting the Income Money Tracker. Goodbye!")
             break
 

@@ -164,7 +164,7 @@ def delete_transaction(transactions):
         if 0 <= choice < len(transactions):
             delete = transactions.pop(choice)
             save_transactions(transactions)
-            print(f"Deleted transaction: {deleted['description']} - ${abs(delete['amount']):.2f}")
+            print(f"Deleted transaction: ${abs(delete['amount']):.2f}")
         else:
             print("Invalid choice")
     except ValueError:

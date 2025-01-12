@@ -11,18 +11,31 @@ def get_user_choice():
     """
     print("Income and Expense Tracker Menu:\n")
     print("1. Add income or expense")
-    print("2. View transactions")
+    print("2. View transactions by category")
     print("3. Check balance")
-    print("4. Exit")
+    print("4. Generate monthly report")
+    print("5. Delete a transaction")
+    print("6. Exit")
     while True:
         try:
-            choice = int(input("\nEnter your choice (1-4):\n"))
-            if 1 <= choice <= 4:
+            choice = int(input("\nEnter your choice (1-6):\n"))
+            if 1 <= choice <= 6:
                 return choice
             else:
-                print("\nInvalid choice. Please enter a number between 1 and 4.")
+                print("\nInvalid choice. Please enter a number between 1 and 6.")
         except ValueError:
             print("\nInvalid input. Please enter a valid number.")
+
+def save_transactions(transactions, filename="transactions.json"):
+    with open(filename, "w") as file:
+        json.dump(transactions, file, indent=4)
+
+def load_transactions(filename="transactions.json"):
+    try:
+        with open(filename, "r") as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return[]
 
 def add_transaction(transactions):
     """

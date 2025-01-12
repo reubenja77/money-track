@@ -12,13 +12,13 @@ def get_user_choice():
     print("4. Exit")
     while True:
         try:
-            choice = int(input("Enter your choice (1-4): "))
+            choice = int(input("\nEnter your choice (1-4):\n"))
             if 1 <= choice <= 4:
                 return choice
             else:
-                print("Invalid choice. Please enter a number between 1 and 4.")
+                print("\nInvalid choice. Please enter a number between 1 and 4.")
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print("\nInvalid input. Please enter a valid number.")
 
 def add_transaction(transactions):
     """
@@ -28,11 +28,11 @@ def add_transaction(transactions):
         transactions (list): List of transaction records.
     """
     try:
-        transaction_type = input("Enter 'income' or 'expense':\n").strip().lower()
+        transaction_type = input("\nEnter 'income' or 'expense':\n").strip().lower()
         if transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'.")
-        category = input("Enter the transaction category (e.g., 'Rent', 'Groceries'):\n").strip()
-        amount = float(input("Enter the amount:\n"))
+        category = input("\nEnter the transaction category (e.g., 'Rent', 'Groceries'):\n").strip()
+        amount = float(input("\nEnter the amount:\n"))
         if amount <= 0:
             raise ValueError("Amount must be greater then 0.")
 
@@ -42,10 +42,17 @@ def add_transaction(transactions):
         # Format amount to 2 decimal places
         formatted_amount = "{:.2f}".format(amount)
 
-        transactions.append({"type": transaction_type, "description": description, "amount": formatted_amount})
-        print(f"{transaction_type.capitalize()} of ${abs(float(formatted_amount)):.2f} added successfully!")
+        # Append the new transaction with all fields
+
+        transactions.append({
+            "type": transaction_type, 
+            "category": category, 
+            "amount": formatted_amount
+        })
+        print(f"\n{transaction_type.capitalize()} of ${abs(float(formatted_amount)):.2f} added successfully!")
     except ValueError as e:
         print(f"Invalid input: {e}")
+        print("Category")
 
 def view_transactions(transactions):
     """
@@ -87,7 +94,7 @@ def main():
         elif choice == 3:
             check_balance(transactions)
         elif choice == 4:
-            print("Exiting the Income Money Tracker. Goodbye!")
+            print("\nExiting the Income Money Tracker. Goodbye!")
             break
 
 # Run program

@@ -49,7 +49,6 @@ def add_transaction(transactions):
         transaction_type = input("\nEnter 'income' or 'expense':\n").strip().lower()
         if transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'.")
-        description = input("Enter the transaction description:\n").strip()
         category = input("\nEnter the transaction category (e.g., 'Salary', 'Rent', 'Food'):\n").strip()
         amount = float(input("\nEnter the amount:\n"))
         if amount <= 0:
@@ -63,8 +62,7 @@ def add_transaction(transactions):
 
         # Append the new transaction with all fields
         transactions.append({
-            "type": transaction_type,
-            "description": description, 
+            "type": transaction_type, 
             "category": category, 
             "amount": formatted_amount,
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -120,7 +118,7 @@ def view_transactions_by_category(transactions):
     print(f"Transactions for category '{category}':\n")
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
-        print(f"{i}. {t_type}: {transaction['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
+        print(f"{i}. {t_type}: ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
 
 def generate_monthly_report(transactions):
     """

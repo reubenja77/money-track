@@ -11,18 +11,19 @@ def get_user_choice():
     """
     print("Income and Expense Tracker Menu:\n")
     print("1. Add income or expense")
-    print("2. View transactions by category")
+    print("2. View transactions")
     print("3. Check balance")
-    print("4. Generate monthly report")
-    print("5. Delete a transaction")
-    print("6. Exit")
+    print("4. View transactions by category")
+    print("5. Generate monthly report")
+    print("6. Delete a transaction")
+    print("7. Exit")
     while True:
         try:
-            choice = int(input("\nEnter your choice (1-6):\n"))
-            if 1 <= choice <= 6:
+            choice = int(input("\nEnter your choice (1-7):\n"))
+            if 1 <= choice <= 7:
                 return choice
             else:
-                print("\nInvalid choice. Please enter a number between 1 and 6.")
+                print("\nInvalid choice. Please enter a number between 1 and 7.")
         except ValueError:
             print("\nInvalid input. Please enter a valid number.")
 
@@ -66,7 +67,7 @@ def add_transaction(transactions):
             "amount": formatted_amount,
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         })
-        save_transactions(transaction)
+        save_transactions(transactions)
         print(f"\n{transaction_type.capitalize()} of ${abs(float(formatted_amount)):.2f} added successfully!")
     except ValueError as e:
         print(f"Invalid input: {e}")
@@ -106,6 +107,7 @@ def view_transactions_by_category(transactions):
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: {transactions['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
+    print(view_transactions_by_category)
 
 def main():
     """
@@ -118,12 +120,14 @@ def main():
         if choice == 1:
             add_transaction(transactions)
         elif choice == 2:
-            view_transactions_by_category(transactions)
+            view_transactions(transactions)
         elif choice == 3:
             check_balance(transactions)
         elif choice == 4:
-            generate_monthly_report(transactions)
+            view_transactions_by_category(transactions)
         elif choice == 5:
+            generate_monthly_report(transactions)
+        elif choice == 6:
             print("\nExiting the Income Money Tracker. Goodbye!")
             break
 

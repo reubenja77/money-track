@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "type": "expense",
+        "category": "Shoes",
+        "amount": "-2000.00",
+        "timestamp": "2025-01-12 17:27:06"
+    },
+    {
+        "type": "expense",
+        "category": "Shoes",
+        "amount": "-2000.00",
+        "timestamp": "2025-01-12 17:27:47"
+    },
+    {
+        "type": "expense",
+        "category": "Shoes",
+        "amount": "-2000.00",
+        "timestamp": "2025-01-12 17:28:55"
+    },
+    {
+        "type": "expense",
+        "category": "Rent",
+        "amount": "-2000.00",
+        "timestamp": "2025-01-12 17:29:09"
+    }
+]

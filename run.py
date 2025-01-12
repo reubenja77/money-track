@@ -106,8 +106,18 @@ def view_transactions_by_category(transactions):
     print(f"Transactions for category '{category}':\n")
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
-        print(f"{i}. {t_type}: {transactions['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
-    print(view_transactions_by_category)
+        print(f"{i}. {t_type}: {transaction['description']} - ${abs(transaction['amount']):.2f} - Date: {transaction['timestamp']}")
+
+def generate_monthly_report(transactions):
+    monthly_summary = {}
+    for transaction in transactions:
+        month = transaction["timestamp"][1:7] # Exact YYYY-MM
+        if month not in monthly_summary:
+            monthly_summary[month] = 0
+        monthly_summary[month] += transaction["amount"]
+    print("Monthly Report:\n")
+    for month, total in sorted(monthly_summary.items()):
+        print(f"{month}: ${total:.2f}")
 
 def main():
     """

@@ -22,5 +22,47 @@
         "category": "Rent",
         "amount": "-2000.00",
         "timestamp": "2025-01-12 17:29:09"
+    },
+    {
+        "type": "expense",
+        "category": "Rent",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:22:48"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:23:03"
+    },
+    {
+        "type": "expense",
+        "category": "Food",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:26:26"
+    },
+    {
+        "type": "expense",
+        "category": "Shoes",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:26:38"
+    },
+    {
+        "type": "expense",
+        "category": "Food",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:36:40"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-200.00",
+        "timestamp": "2025-01-12 19:37:20"
+    },
+    {
+        "type": "expense",
+        "category": "clothes",
+        "amount": "-300.00",
+        "timestamp": "2025-01-12 19:37:35"
     }
 ]

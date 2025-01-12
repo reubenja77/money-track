@@ -1,4 +1,8 @@
 # Money Tracker (Income and Expense Tracker)
+
+import json
+from datetime import datetime
+
 def get_user_choice():
     """
     Display menu options and return user's choice.
@@ -31,7 +35,7 @@ def add_transaction(transactions):
         transaction_type = input("\nEnter 'income' or 'expense':\n").strip().lower()
         if transaction_type not in ["income", "expense"]:
             raise ValueError("Transaction type must be 'income' or 'expense'.")
-        category = input("\nEnter the transaction category (e.g., 'Rent', 'Groceries'):\n").strip()
+        category = input("\nEnter the transaction category (e.g., 'Salary', 'Rent', 'Food'):\n").strip()
         amount = float(input("\nEnter the amount:\n"))
         if amount <= 0:
             raise ValueError("Amount must be greater then 0.")
@@ -43,7 +47,6 @@ def add_transaction(transactions):
         formatted_amount = "{:.2f}".format(amount)
 
         # Append the new transaction with all fields
-
         transactions.append({
             "type": transaction_type, 
             "category": category, 

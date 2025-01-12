@@ -163,9 +163,9 @@ def delete_transaction(transactions):
     try:
         choice = int(input("Enter the number of the transaction to delete:\n")) - 1
         if 0 <= choice < len(transactions):
-            delete = transactions.pop(choice)
+            deleted = transactions.pop(choice)
             save_transactions(transactions)
-            print(f"Deleted transaction: ${abs(delete['amount']):.2f}")
+            print(f"Deleted transaction: ${abs(float(delete['amount'])):.2f}") # Ensure amount is a float
         else:
             print("Invalid choice")
     except ValueError:

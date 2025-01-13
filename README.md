@@ -15,9 +15,16 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 - As a new user, I would like check my balances.
 
 ### Return Users:
-- As a return user, I would like to keep a monthly track of my expenses.
+- As a return user, I would like to keep a monthly track of my income and expenses.
+
+### App Flowchart (created on LucidApp):
+
+Before I started building the app, I mapped out the basic structure of the flowchart and I used LucidApp to create the flowchart.
+
+![Flowchart](assets/images/flowchart.jpg)
 
 ## How the App works:
+screenshots of how the app works to be inserted.
 
 
 
@@ -32,6 +39,9 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 | SyntaxError | Incorrect operator used to check if integer selection | ![screenshot](assets/images/error-02.png) | ![screenshot](assets/images/error-02-fixed.png) |
 | KeyError in check_balance function | Incorrect string "formatted_amount" used instead of "amount" | ![screenshot](assets/images/error-04.png) | ![screenshot](assets/images/error-04-fixed.png) |
 | KeyError in check_balance function | Incorrect string "formatted_amount" used instead of "amount" | ![screenshot](assets/images/error-04.png) | ![screenshot](assets/images/error-04-fixed.png) |
+| NameError in add_transaction function | The function was incorrectly named as "save_transactions(transaction)" instead of "save_transactions(transactions)" | ![screenshot](assets/images/error-05.png) | ![screenshot](assets/images/error-05-fixed.png) |
+| TypeError in view_transactions_by_category function | List indices was a string and not an integer or slice | ![screenshot](assets/images/error-06.png) | ![screenshot](assets/images/error-06-fixed.png) |
+
 
 
 ## Validation

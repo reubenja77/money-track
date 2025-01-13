@@ -136,10 +136,10 @@ def generate_monthly_report(transactions):
     """
     monthly_summary = {}
     for transaction in transactions:
-        month = transaction["timestamp"][1:7] # Exact YYYY-MM
+        month = transaction["timestamp"][:7] # Extract YYYY-MM
         if month not in monthly_summary:
             monthly_summary[month] = 0
-        monthly_summary[month] += transaction["amount"]
+        monthly_summary[month] += float(transaction["amount"]) # Convert to float
     print("Monthly Report:\n")
     for month, total in sorted(monthly_summary.items()):
         print(f"{month}: ${total:.2f}")

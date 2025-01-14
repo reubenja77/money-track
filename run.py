@@ -7,10 +7,10 @@ from datetime import datetime
 def introduction():
     print("Welcome to The Money Tracker App!\n")
     print(
-        "The app that helps you amange your personal finances "
+        "The app that helps you manage your personal finances "
         "by tracking of your income and expenses.\n"
     )
-    print("Lets get you started!\n")
+    print("Let's get you started!\n")
 
 
 def get_user_choice():
@@ -61,44 +61,59 @@ def add_transaction(transactions):
     Args:
         transactions (list): List of transaction records.
     """
-    try:
-        transaction_type = (
-            input("\nEnter 'income' or 'expense':\n")
-            .strip()
-            .lower()
-        )
-        if transaction_type not in ["income", "expense"]:
-            raise ValueError("Transaction type must be 'income' or 'expense'.")
-        category = (
-            input(
-                "\nEnter the transaction category "
-                "(e.g., 'Salary', 'Rent', 'Food'):\n"
+    # Loop to stay in "Add transaction" menu
+    while True:
+        try:
+            print("\n--- Add Transaction Menu ---")
+            transaction_type = (
+                input(
+                    "\nEnter 'income' or 'expense' "
+                    "(or type 'back' to return to the main menu):\n"
+                )
+                .strip()
+                .lower()
             )
-            .strip()
-        )
-        amount = float(input("\nEnter the amount:\n"))
-        if amount <= 0:
-            raise ValueError("Amount must be greater then 0.")
+            if transaction_type == "back":
+                print("Returning to the main menu...")
+                break # Exit the loop and return to the main menu
+            if transaction_type not in ["income", "expense"]:
+                print(
+                    "Invalid input. Please enter 'income', 'expense', "
+                    "or go 'back'."
+                )
+                continue
 
-        # Negative value for expenses
-        if transaction_type == "expense":
-            amount = -amount
+            category = (
+                input(
+                    "\nEnter the transaction category "
+                    "(e.g., 'Salary', 'Rent', 'Groceries'):\n"
+                )
+                .strip()
+            )
+            amount = float(input("\nEnter the amount:\n"))
+            if amount <= 0:
+                print("Amount must be greater than 0.")
+                continue
 
-        # Format amount to 2 decimal places
-        formatted_amount = "{:.2f}".format(amount)
+            # Negative value for expenses
+            if transaction_type == "expense":
+                amount = -amount
 
-        # Append the new transaction with all fields
-        transactions.append({
-            "type": transaction_type,
-            "category": category,
-            "amount": formatted_amount,
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        })
-        save_transactions(transactions)
-        print(f"\n{transaction_type.capitalize()} of "
-              f"${abs(float(formatted_amount)):.2f} added successfully!")
-    except ValueError as e:
-        print(f"Invalid input: {e}")
+            # Format amount to 2 decimal places
+            formatted_amount = "{:.2f}".format(amount)
+
+            # Append the new transaction with all fields
+            transactions.append({
+                "type": transaction_type,
+                "category": category,
+                "amount": formatted_amount,
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            })
+            save_transactions(transactions)
+            print(f"\n{transaction_type.capitalize()} of "
+                  f"${abs(float(formatted_amount)):.2f} added successfully!")
+        except ValueError:
+            print("Invalid input. Please enter valid details.")
 
 
 def view_transactions(transactions):

@@ -64,5 +64,17 @@
         "category": "clothes",
         "amount": "-300.00",
         "timestamp": "2025-01-12 19:37:35"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-100.00",
+        "timestamp": "2025-01-13 16:40:20"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-300.50",
+        "timestamp": "2025-01-13 16:40:42"
     }
 ]

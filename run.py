@@ -6,8 +6,11 @@ from datetime import datetime
 
 def introduction():
     print("Welcome to The Money Tracker App!\n")
-    print("The app that helps you keep track of your income and expenses.")
-    print("\nLets get you started!/n")
+    print(
+        "The app that helps you amange your personal finances "
+        "by tracking of your income and expenses.\n"
+    )
+    print("Lets get you started!\n")
 
 
 def get_user_choice():
@@ -16,7 +19,7 @@ def get_user_choice():
 
     Returns an integer of User's menu choice.
     """
-    print("Income and Expense Tracker Menu:\n")
+    print("\nIncome and Expense Tracker Menu:\n")
     print("1. Add income or expense")
     print("2. View transactions")
     print("3. Check balance")

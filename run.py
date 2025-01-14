@@ -213,6 +213,7 @@ def main():
     Main function to run the income and expense tracker.
     Chains other functions to provide functionality.
     """
+    introduction()
     transactions = load_transactions()
     while True:
         choice = get_user_choice()

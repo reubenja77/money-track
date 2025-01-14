@@ -50,7 +50,7 @@ screenshots of how the app works to be inserted.
 
 | File | screenshot | Notes |                                                                                                 |
 | --- | --- | --- | ----------------------------------------------------------------------------------------------------------|
-| run.py  | ![screenshot](assets/images/pep8.png) |  No errors were returned for run.py except "lines to long" within if clauses. |
+| run.py  | ![screenshot](assets/images/pep8.png) |  All clear, no errors found |
 
 ## Tools & Technologies used
 

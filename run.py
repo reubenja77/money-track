@@ -4,6 +4,12 @@ import json
 from datetime import datetime
 
 
+def introduction():
+    print("Welcome to The Money Tracker App!\n")
+    print("The app that helps you keep track of your income and expenses.")
+    print("\nLets get you started!/n")
+
+
 def get_user_choice():
     """
     Display menu options and return user's choice.

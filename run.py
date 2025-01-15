@@ -3,6 +3,11 @@
 import os
 import json
 from datetime import datetime
+from colorama import Fore, Back, Style, init
+
+
+#  Initialise colorama
+init(autoreset=True)
 
 
 def clear():
@@ -18,7 +23,7 @@ def introduction():
         "The app that helps you manage your personal finances "
         "by tracking your income and expenses.\n"
     )
-    print("Let's get you started!\n")
+    print(Back.GREEN + Fore.YELLOW + "Let's get you started!\n")
 
 
 def get_user_choice():
@@ -41,12 +46,14 @@ def get_user_choice():
             if 1 <= choice <= 7:
                 return choice
             else:
-                print(
+                print(Back.RED + Fore.WHITE + (
                     "\nInvalid choice. "
-                    "Please enter a number between 1 and 7."
-                )
+                    "\nPlease enter a number between 1 and 7." + Style.RESET_ALL
+                ))
         except ValueError:
-            print("\nInvalid input. Please enter a valid number.")
+            print(Back.RED + Fore.WHITE + (
+                "\nInvalid input. Please enter a valid number." + Style.RESET_ALL
+            ))
 
 
 def save_transactions(transactions, filename="transactions.json"):
@@ -120,11 +127,15 @@ def add_transaction(transactions):
             })
             save_transactions(transactions)
 
-            # Print success message with details and pause
-            print(f"\n{transaction_type.capitalize()} of "
-                  f"${abs(float(formatted_amount)):.2f} "
-                  f"added successfully to category! "
-                  f"'{category}'.")
+            # Print success message in colors with details and pause
+            print(
+                Back.GREEN + Fore.YELLOW +
+                f"\n{transaction_type.capitalize()} of "
+                f"${abs(float(formatted_amount)):.2f} "
+                f"added successfully to category! "
+                f"'{category}'." +
+                Style.RESET_ALL
+            )
             input("\nPress Enter to continue...")
             clear()  # Clear the screen after exiting the Add Transaction
 
@@ -157,7 +168,8 @@ def check_balance(transactions):
         transactions (list): Lists of transaction records.
     """
     balance = sum(float(transaction["amount"]) for transaction in transactions)
-    print(f"Current Balance: ${balance:.2f}\n")
+    print(Back.GREEN + Fore.YELLOW + f"\nCurrent Balance:")
+    print(f"${balance:.2f}\n" + Style.RESET_ALL)
 
 
 def view_transactions_by_category(transactions):
@@ -172,7 +184,7 @@ def view_transactions_by_category(transactions):
     If no matching transactions are found, an appropriate message is displayed.
     Otherwise, the filtered transactions are displayed with their details.
     """
-    category = input("Enter the category to filter by:\n").strip()
+    category = input("\nEnter the category to filter by:\n").strip()
     filtered_transactions = [
         t for t in transactions if t["category"].lower() == category.lower()
     ]
@@ -208,7 +220,7 @@ def generate_monthly_report(transactions):
             monthly_summary[month] = 0
         monthly_summary[month] += float(transaction["amount"])
         # Convert to float
-    print("Monthly Report:\n")
+    print(Back.GREEN + Fore.YELLOW + "\nMonthly Report:")
     for month, total in sorted(monthly_summary.items()):
         print(f"{month}: ${total:.2f}")
 
@@ -234,12 +246,13 @@ def delete_transaction(transactions):
         if 0 <= choice < len(transactions):
             deleted = transactions.pop(choice)
             save_transactions(transactions)
-            print(f"Deleted transaction: ${abs(float(deleted['amount'])):.2f}")
+            print(f"Deleted transaction: ${abs(float(deleted['amount'])):.2f}\n")
             # Ensure amount is a float
         else:
-            print("Invalid choice")
+            print(Back.RED + Fore.WHITE + "Invalid choice")
     except ValueError:
-        print("Invalid input. Please enter a valid number.")
+        print(Back.RED + Fore.WHITE + "Invalid input.")
+        print(Back.RED + Fore.WHITE + "Please enter a valid number." + Style.RESET_ALL)
 
 
 def main():

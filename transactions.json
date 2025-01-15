@@ -1,24 +1,6 @@
 [
     {
         "type": "expense",
-        "category": "Shoes",
-        "amount": "-2000.00",
-        "timestamp": "2025-01-12 17:27:06"
-    },
-    {
-        "type": "expense",
-        "category": "Shoes",
-        "amount": "-2000.00",
-        "timestamp": "2025-01-12 17:27:47"
-    },
-    {
-        "type": "expense",
-        "category": "Shoes",
-        "amount": "-2000.00",
-        "timestamp": "2025-01-12 17:28:55"
-    },
-    {
-        "type": "expense",
         "category": "Rent",
         "amount": "-2000.00",
         "timestamp": "2025-01-12 17:29:09"
@@ -76,5 +58,131 @@
         "category": "food",
         "amount": "-300.50",
         "timestamp": "2025-01-13 16:40:42"
+    },
+    {
+        "type": "income",
+        "category": "salary",
+        "amount": "3599900.00",
+        "timestamp": "2025-01-15 10:25:41"
+    },
+    {
+        "type": "income",
+        "category": "salary",
+        "amount": "504000.00",
+        "timestamp": "2025-01-15 10:31:25"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-4500.30",
+        "timestamp": "2025-01-15 10:32:55"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-2450.00",
+        "timestamp": "2025-01-15 10:33:18"
+    },
+    {
+        "type": "income",
+        "category": "salary",
+        "amount": "3000.50",
+        "timestamp": "2025-01-15 13:23:17"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-200.00",
+        "timestamp": "2025-01-15 13:23:35"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-450.12",
+        "timestamp": "2025-01-15 13:31:28"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-400.00",
+        "timestamp": "2025-01-15 13:34:49"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-340.44",
+        "timestamp": "2025-01-15 13:45:46"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-856.65",
+        "timestamp": "2025-01-15 13:49:32"
+    },
+    {
+        "type": "expense",
+        "category": "shoes",
+        "amount": "-3990.99",
+        "timestamp": "2025-01-15 14:06:48"
+    },
+    {
+        "type": "expense",
+        "category": "vehicle",
+        "amount": "-298.70",
+        "timestamp": "2025-01-15 14:07:27"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-4503.80",
+        "timestamp": "2025-01-15 14:08:14"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-2358.90",
+        "timestamp": "2025-01-15 14:18:23"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-2367.32",
+        "timestamp": "2025-01-15 14:21:39"
+    },
+    {
+        "type": "expense",
+        "category": "rent",
+        "amount": "-2119.87",
+        "timestamp": "2025-01-15 14:23:41"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-3290.45",
+        "timestamp": "2025-01-15 14:25:04"
+    },
+    {
+        "type": "expense",
+        "category": "vehicle",
+        "amount": "-62386.32",
+        "timestamp": "2025-01-15 14:27:15"
+    },
+    {
+        "type": "expense",
+        "category": "insurance",
+        "amount": "-3864.45",
+        "timestamp": "2025-01-15 14:51:23"
+    },
+    {
+        "type": "expense",
+        "category": "garden service",
+        "amount": "-4839.00",
+        "timestamp": "2025-01-15 15:42:47"
+    },
+    {
+        "type": "expense",
+        "category": "garden service",
+        "amount": "-2399.54",
+        "timestamp": "2025-01-15 19:23:38"
     }
 ]

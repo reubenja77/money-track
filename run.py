@@ -13,11 +13,10 @@ def clear():
 
 
 def introduction():
-    clear()  # Clear the screen before displaying the introduction
     print("Welcome to The Money Tracker App!\n")
     print(
         "The app that helps you manage your personal finances "
-        "by tracking of your income and expenses.\n"
+        "by tracking your income and expenses.\n"
     )
     print("Let's get you started!\n")
 
@@ -28,7 +27,6 @@ def get_user_choice():
 
     Returns an integer of User's menu choice.
     """
-    clear()  # Clear the screen before displaying the main menu
     print("\nIncome and Expense Menu:\n")
     print("1. Add income or expense")
     print("2. View transactions")
@@ -97,7 +95,7 @@ def add_transaction(transactions):
             category = (
                 input(
                     "\nEnter the transaction category "
-                    "(e.g., 'Salary', 'Rent', 'Groceries'):\n"
+                    "(e.g., 'Salary', 'Rent', 'Food'):\n"
                 )
                 .strip()
             )
@@ -121,8 +119,15 @@ def add_transaction(transactions):
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             })
             save_transactions(transactions)
+
+            # Print success message with details and pause
             print(f"\n{transaction_type.capitalize()} of "
-                  f"${abs(float(formatted_amount)):.2f} added successfully!")
+                  f"${abs(float(formatted_amount)):.2f} "
+                  f"added successfully to category! "
+                  f"'{category}'.")
+            input("\nPress Enter to continue...")
+            clear()  # Clear the screen after exiting the Add Transaction
+
         except ValueError:
             print("Invalid input. Please enter valid details.")
 
@@ -225,7 +230,7 @@ def delete_transaction(transactions):
     view_transactions(transactions)
     try:
         choice = int(input(
-            "Enter the number of the transaction to delete:\n")) - 1
+            "\nEnter the number of the transaction to delete:\n")) - 1
         if 0 <= choice < len(transactions):
             deleted = transactions.pop(choice)
             save_transactions(transactions)

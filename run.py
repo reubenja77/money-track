@@ -1,10 +1,18 @@
-# Money Tracker (Income and Expense Tracker)
+# Money Tracker App (Income and Expense Tracker)
 
 import json
 from datetime import datetime
 
 
+def clear():
+    """
+    Clear function to clean-up the terminal so things don't get messy.
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+
+
 def introduction():
+    clear()  # Clear the screen before displaying the introduction
     print("Welcome to The Money Tracker App!\n")
     print(
         "The app that helps you manage your personal finances "
@@ -19,7 +27,8 @@ def get_user_choice():
 
     Returns an integer of User's menu choice.
     """
-    print("\nIncome and Expense Tracker Menu:\n")
+    clear()  # Clear the screen before displaying the main menu
+    print("\nIncome and Expense Menu:\n")
     print("1. Add income or expense")
     print("2. View transactions")
     print("3. Check balance")
@@ -63,6 +72,7 @@ def add_transaction(transactions):
     """
     # Loop to stay in "Add transaction" menu
     while True:
+        clear()  # Clear the screen before displaying the Add Transaction
         try:
             print("\n--- Add Transaction Menu ---")
             transaction_type = (
@@ -75,7 +85,7 @@ def add_transaction(transactions):
             )
             if transaction_type == "back":
                 print("Returning to the main menu...")
-                break # Exit the loop and return to the main menu
+                break  # Exit the loop and return to the main menu
             if transaction_type not in ["income", "expense"]:
                 print(
                     "Invalid input. Please enter 'income', 'expense', "
@@ -248,7 +258,7 @@ def main():
         elif choice == 6:
             delete_transaction(transactions)
         elif choice == 7:
-            print("\nExiting the Income Money Tracker. Goodbye!")
+            print("\nExiting The Money Tracker. Goodbye!")
             break
 
 

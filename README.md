@@ -126,4 +126,10 @@ The Python Essentials Template from Code Institute was used to create my Github 
 https://github.com/Code-Institute-Org/p3-template
 
 ### Acknowledgements:
-My mentor, Rory Sheridan, for his advice and guidance on how to approach this project.
+My mentor, Rory Sheridan, for his advice and guidance on how to approach this project. He also introduced a code snippet to clear the terminal to get rid of any code clutter:
+
+    def clear():
+        """
+        Clear function to clean-up the terminal so things don't get messy.
+        """
+        os.system("cls" if os.name == "nt" else "clear")

@@ -48,11 +48,13 @@ def get_user_choice():
             else:
                 print(Back.RED + Fore.WHITE + (
                     "\nInvalid choice. "
-                    "\nPlease enter a number between 1 and 7." + Style.RESET_ALL
+                    "\nPlease enter a number "
+                    "between 1 and 7." + Style.RESET_ALL
                 ))
         except ValueError:
             print(Back.RED + Fore.WHITE + (
-                "\nInvalid input. Please enter a valid number." + Style.RESET_ALL
+                "\nInvalid input. Please enter "
+                "a valid number." + Style.RESET_ALL
             ))
 
 
@@ -246,13 +248,16 @@ def delete_transaction(transactions):
         if 0 <= choice < len(transactions):
             deleted = transactions.pop(choice)
             save_transactions(transactions)
-            print(f"Deleted transaction: ${abs(float(deleted['amount'])):.2f}\n")
+            print(f"Deleted transaction: "
+                  f"${abs(float(deleted['amount'])):.2f}\n")
             # Ensure amount is a float
         else:
             print(Back.RED + Fore.WHITE + "Invalid choice")
     except ValueError:
         print(Back.RED + Fore.WHITE + "Invalid input.")
-        print(Back.RED + Fore.WHITE + "Please enter a valid number." + Style.RESET_ALL)
+        print(Back.RED + Fore.WHITE + (
+            "\nPlease enter a valid number." + Style.RESET_ALL
+        ))
 
 
 def main():

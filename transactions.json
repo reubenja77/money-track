@@ -36,12 +36,6 @@
         "timestamp": "2025-01-15 10:33:18"
     },
     {
-        "type": "income",
-        "category": "salary",
-        "amount": "3000.50",
-        "timestamp": "2025-01-15 13:23:17"
-    },
-    {
         "type": "expense",
         "category": "food",
         "amount": "-200.00",

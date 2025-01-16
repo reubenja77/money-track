@@ -186,14 +186,29 @@ def view_transactions_by_category(transactions):
     If no matching transactions are found, an appropriate message is displayed.
     Otherwise, the filtered transactions are displayed with their details.
     """
+    if not transactions:
+        print(Back.ORANGE + Fore.WHITE + "No transactions recorded yet!")
+        return
+
+    # Display all recorded transactions for context
+    print("\n--- All Recorded Transactions ---\n")
+    for i, transaction in enumerate(transactions, 1):
+        t_type = transaction["type"].capitalize()
+        print(f"{i}. {t_type}: {transaction['category']} - "
+              f"${abs(float(transaction['amount'])):.2f} - "
+              f"Date: {transaction['timestamp']}")
+
+    # Filter transactions by category
     category = input("\nEnter the category to filter by:\n").strip()
     filtered_transactions = [
         t for t in transactions if t["category"].lower() == category.lower()
     ]
+
     if not filtered_transactions:
-        print(f"No transactions found for category: {category}")
+        print(f"\nNo transactions found for category: {category}")
         return
-    print(f"Transactions for category '{category}':\n")
+
+    print(f"\n--- Transactions for Category '{category}' ---\n")
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
         amount = float(transaction["amount"])

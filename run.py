@@ -23,7 +23,7 @@ def introduction():
         "The app that helps you manage your personal finances "
         "by tracking your income and expenses.\n"
     )
-    print(Back.GREEN + Fore.YELLOW + "Let's get you started!\n")
+    print(Back.GREEN + Fore.WHITE + "Let's get you started!\n")
 
 
 def get_user_choice():
@@ -131,7 +131,7 @@ def add_transaction(transactions):
 
             # Print success message in colors with details and pause
             print(
-                Back.GREEN + Fore.YELLOW +
+                Back.GREEN + Fore.WHITE +
                 f"\n{transaction_type.capitalize()} of "
                 f"${abs(float(formatted_amount)):.2f} "
                 f"added successfully to category! "
@@ -170,7 +170,7 @@ def check_balance(transactions):
         transactions (list): Lists of transaction records.
     """
     balance = sum(float(transaction["amount"]) for transaction in transactions)
-    print(Back.GREEN + Fore.YELLOW + f"\nCurrent Balance:")
+    print(Back.GREEN + Fore.WHITE + f"\nCurrent Balance:")
     print(f"${balance:.2f}\n" + Style.RESET_ALL)
 
 
@@ -222,7 +222,7 @@ def generate_monthly_report(transactions):
             monthly_summary[month] = 0
         monthly_summary[month] += float(transaction["amount"])
         # Convert to float
-    print(Back.GREEN + Fore.YELLOW + "\nMonthly Report:")
+    print(Back.GREEN + Fore.WHITE + "\nMonthly Report:")
     for month, total in sorted(monthly_summary.items()):
         print(f"{month}: ${total:.2f}")
 

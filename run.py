@@ -169,7 +169,10 @@ def check_balance(transactions):
     Args:
         transactions (list): Lists of transaction records.
     """
-    balance = sum(float(transaction["amount"]) for transaction in transactions)
+    balance = sum(
+        float(transaction["amount"])
+        for transaction in transactions
+    )
     print(Back.GREEN + Fore.WHITE + f"\nCurrent Balance:")
     print(f"${balance:.2f}\n" + Style.RESET_ALL)
 
@@ -187,7 +190,7 @@ def view_transactions_by_category(transactions):
     Otherwise, the filtered transactions are displayed with their details.
     """
     if not transactions:
-        print(Back.ORANGE + Fore.WHITE + "No transactions recorded yet!")
+        print(Back.BLUE + Fore.WHITE + "No transactions recorded yet!")
         return
 
     # Display all recorded transactions for context
@@ -256,23 +259,106 @@ def delete_transaction(transactions):
     The function includes input validation and error handling
     to ensure a smooth and safe deletion process.
     """
-    view_transactions(transactions)
-    try:
-        choice = int(input(
-            "\nEnter the number of the transaction to delete:\n")) - 1
-        if 0 <= choice < len(transactions):
-            deleted = transactions.pop(choice)
-            save_transactions(transactions)
-            print(f"Deleted transaction: "
-                  f"${abs(float(deleted['amount'])):.2f}\n")
-            # Ensure amount is a float
-        else:
-            print(Back.RED + Fore.WHITE + "Invalid choice")
-    except ValueError:
-        print(Back.RED + Fore.WHITE + "Invalid input.")
+    if not transactions:
         print(Back.RED + Fore.WHITE + (
-            "\nPlease enter a valid number." + Style.RESET_ALL
+            "No transactions recorded yet to be deleted."
+            + Style.RESET_ALL
         ))
+        return
+
+    while True:
+        view_transactions(transactions)
+        try:
+            choices = input(
+                "\nEnter the number of the transaction to delete "
+                "(seperate multiple numbers with commas):\n"
+            ).strip()
+
+            # Check for empty input or non-numeric values
+            if not choices:
+                print(Back.RED + Fore.WHITE + (
+                    "Please enter a number."
+                    + Style.RESET_ALL
+                ))
+                continue
+
+            # Parse input and validate
+            indices = [
+                int(choice.strip()) - 1
+                for choice in choices.split(",")
+                if choice.strip().isdigit()
+            ]
+
+            # Check if any valid indices exist
+            if not indices:
+                print(Back.RED + Fore.WHITE + (
+                    "\nPlease enter a valid number "
+                    "from the recorded transactions "
+                    "you wish to delete "
+                    "(seperate multiple numbers with commas)." +
+                    Style.RESET_ALL
+                ))
+                continue
+
+            invalid_indices = [
+                i for i in indices
+                if 1 < 0 or i >= len(transactions)
+            ]
+            if invalid_indices:
+                print(Back.RED + Fore.WHITE + (
+                    f"\nInvalid transaction number(s): "
+                    f"\nPlease enter a valid number "
+                    f"from the recorded transactions "
+                    f"you wish to delete "
+                    f"(seperate multiple numbers with commas)."
+                    f"\n{', '.join(str(i + 1) for i in invalid_indices)}." +
+                    Style.RESET_ALL
+                ))
+                continue
+
+            # Confirm deletion
+            print(Back.BLUE + Fore.WHITE + (
+                "\nThe following will be deleted" +
+                Style.RESET_ALL
+            ))
+            for i in sorted(indices):
+                transaction = transactions[i]
+                print(f"- {transaction['type'].capitalize()} | "
+                      f"Category: {transaction['category']} | "
+                      f"Amount: ${abs(float(transaction['amount'])):.2f} | "
+                      f"Date: {transaction['timestamp']}")
+
+            confirm = (
+                input(
+                    "\nAre you sure you want to delete "
+                    "these transactions? (yes/no):\n"
+                )
+                .strip()
+                .lower()
+            )
+            if confirm != "yes":
+                print(Back.BLUE + Fore.WHITE + (
+                    "\nNo transactions were deleted." +
+                    Style.RESET_ALL
+                ))
+                return
+
+            # Delete transactions in reverse order to avoid index shifting
+            for i in sorted(indices, reverse=True):
+                transactions.pop(i)
+
+            save_transactions(transactions)
+            print(Back.GREEN + Fore.WHITE + (
+                "Selected transactions deleted successfully."
+            ))
+            return
+
+        except ValueError:
+            print(Back.RED + Fore.WHITE + "Invalid input.")
+            print(Back.RED + Fore.WHITE + (
+                "\nPlease enter a valid numbers seperated by commas." +
+                Style.RESET_ALL
+            ))
 
 
 def main():
@@ -297,7 +383,7 @@ def main():
         elif choice == 6:
             delete_transaction(transactions)
         elif choice == 7:
-            print("\nExiting The Money Tracker. Goodbye!")
+            print("\nExiting The Money Tracker.\nGoodbye!\n")
             break
 
 

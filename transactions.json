@@ -6,22 +6,10 @@
         "timestamp": "2025-01-13 16:40:20"
     },
     {
-        "type": "expense",
-        "category": "food",
-        "amount": "-300.50",
-        "timestamp": "2025-01-13 16:40:42"
-    },
-    {
         "type": "income",
         "category": "salary",
         "amount": "3599900.00",
         "timestamp": "2025-01-15 10:25:41"
-    },
-    {
-        "type": "income",
-        "category": "salary",
-        "amount": "504000.00",
-        "timestamp": "2025-01-15 10:31:25"
     },
     {
         "type": "expense",
@@ -37,27 +25,9 @@
     },
     {
         "type": "expense",
-        "category": "food",
-        "amount": "-200.00",
-        "timestamp": "2025-01-15 13:23:35"
-    },
-    {
-        "type": "expense",
         "category": "rent",
         "amount": "-450.12",
         "timestamp": "2025-01-15 13:31:28"
-    },
-    {
-        "type": "expense",
-        "category": "food",
-        "amount": "-400.00",
-        "timestamp": "2025-01-15 13:34:49"
-    },
-    {
-        "type": "expense",
-        "category": "food",
-        "amount": "-340.44",
-        "timestamp": "2025-01-15 13:45:46"
     },
     {
         "type": "expense",
@@ -82,11 +52,5 @@
         "category": "garden service",
         "amount": "-2399.54",
         "timestamp": "2025-01-15 19:23:38"
-    },
-    {
-        "type": "expense",
-        "category": "food",
-        "amount": "-345.65",
-        "timestamp": "2025-01-15 20:58:07"
     }
 ]

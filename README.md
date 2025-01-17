@@ -23,9 +23,105 @@ Before I started building the app, I mapped out the basic structure of the flowc
 
 ![Flowchart](assets/images/flowchart.jpg)
 
-## How the App works:
-screenshots of how the app works to be inserted.
 
+## How the App works:
+
+##### INITIALIZATION:
+- The code imports the neccessary libraries: json, colorama, os and datetime.
+- The 'init' function from colorama calls to enable colored text to output in the terminal.
+- The 'clear' function defines to clear the terminal screen using os.system for clarity.
+
+##### INTRODUCTION
+- The App welcomes the User and introduces itself as The Money Tracker App that helps the User manage their personal finances.
+
+
+##### MAIN MENU
+- The app presents the User with a menu of options:
+    1. Add income or expense
+    2. View transactions
+    3. Check balance
+    4. View transactions by category
+    5. Generate monthly report
+    6. Delete a transaction
+    7. Exit
+
+![App Terminal](assets/images/01-welcome-menu-screen.png)
+
+
+##### RETURN TO 'MAIN MENU'
+- The User can return to the 'Main Menu' by typing 'back'
+
+![App Terminal](assets/images/03-return-main-menu-screen.png)
+
+
+##### USER CHOICE
+The App will perform the action the User selected:
+- Add income or expense (Option 1)
+    - The App will ask the User to specify whether they want to add "income" or "expense".
+    - The User can then enter the category of the transaction (e.g., "Salary", "Rent", "Food").
+    - The User will be prompted to enter the amount of the transaction.
+    - The App will confirm the details and add the transaction to their records.
+
+![App Terminal](assets/images/02-transaction-menu-select-option02.png)
+
+-----
+
+
+- View transactions (Option 2)
+    - This option will display a list of all their recorded transactions, including the type (income or expense), category, amount, and date.
+
+![App Terminal](assets/images/02-transaction-menu-select-option02.png)
+
+-----
+
+
+- Check balance (Option 3)
+    - The App will calculate and display their current balance, which is the sum of all their income transactions minus the sum of all their expense transactions.
+
+![App Terminal](assets/images/05-check-balance-screen.png)
+
+-----
+
+
+- View transactions by category (Option 4)
+    - The User can view their transactions filtered by a specific category.
+    - The App will first display a list of all their transactions.
+    - Then, the User will be prompted to enter the category they want to see.
+    - The App will then display only the transactions that belong to that category.
+
+![App Terminal](assets/images/05-view-transactions-category-screen.png)
+
+-----
+
+
+- Generate monthly report (Option 5)
+    - This option will generate a report that summarizes their income and expenses for each month.
+    - The report will show the total amount of income and expenses for each month.
+
+![App Terminal](assets/images/06-generate-monthly-report.png)
+
+-----
+
+
+- Delete a transaction (Option 6)
+    - The User can delete transactions from their records.
+    - The App will first display a list of all their transactions.
+    - The User will be prompted to enter the number(s) of the transaction(s) they want to delete.
+    - The App will confirm their choice before deleting the transaction(s).
+
+![App Terminal](assets/images/07-delete-transaction-screen.png)
+
+-----
+
+
+- Exit (Option 7)
+    - This option will exit the App.
+
+![App Terminal](assets/images/08-exit-screen.png)
+
+
+##### SAVING TRANSACTIONS:
+- The App saves the Users transaction data in a file named "transactions.json" whenever they add, edit, or delete a transaction. This ensures that their data is persistent and doesn't disappear when they close the App.
 
 
 ## Testing

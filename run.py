@@ -173,7 +173,10 @@ def check_balance(transactions):
         float(transaction["amount"])
         for transaction in transactions
     )
-    print(Back.GREEN + Fore.WHITE + f"\nCurrent Balance:")
+    print(Back.GREEN + Fore.WHITE + (
+        "\nCurrent Balance:" +
+        Style.RESET_ALL
+    ))
     print(f"${balance:.2f}\n" + Style.RESET_ALL)
 
 

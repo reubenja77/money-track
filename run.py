@@ -78,9 +78,9 @@ def add_transaction(transactions):
     Args:
         transactions (list): List of transaction records.
     """
+    clear()  # Clear the screen before displaying the Add Transaction
     # Loop to stay in "Add transaction" menu
     while True:
-        clear()  # Clear the screen before displaying the Add Transaction
         try:
             print("\n--- Add Transaction Menu ---")
             transaction_type = (
@@ -155,7 +155,7 @@ def view_transactions(transactions):
     if not transactions:
         print("No transactions recorded yet.")
         return
-    print("Recorded Transactions:\n")
+    print(Back.GREEN + Fore.WHITE + "\nRecorded Transactions:\n")
     for i, transaction in enumerate(transactions, 1):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: Category: {transaction['category']} - "
@@ -280,25 +280,36 @@ def delete_transaction(transactions):
             # Check for empty input or non-numeric values
             if not choices:
                 print(Back.RED + Fore.WHITE + (
-                    "Please enter a number."
-                    + Style.RESET_ALL
+                    "Please enter a number from recorded transactions "
+                    "you wish to delete "
+                    "(seperate multiple numbers with commas)." +
+                    Style.RESET_ALL
                 ))
                 continue
 
             # Parse input and validate
-            indices = [
-                int(choice.strip()) - 1
-                for choice in choices.split(",")
-                if choice.strip().isdigit()
-            ]
+            indices = []
+            invalid_inputs = []
+            for choice in choices.split(","):
+                choice = choice.strip()
+                if not choice.isdigit():
+                    invalid_inputs.append(choice)
+                else:
+                    index = int(choice) - 1
+                    if index < 0 or index >= len(transactions):
+                        invalid_inputs.append(choice)
+                    else:
+                        indices.append(index)
 
-            # Check if any valid indices exist
-            if not indices:
+            # Handle invalid inputs
+            if invalid_inputs:
                 print(Back.RED + Fore.WHITE + (
+                    f"\nInvalid transaction number(s): "
+                    f"{','.join(invalid_inputs)}.\n"
                     "\nPlease enter a valid number "
                     "from the recorded transactions "
                     "you wish to delete "
-                    "(seperate multiple numbers with commas)." +
+                    "(seperate multiple numbers with commas).\n" +
                     Style.RESET_ALL
                 ))
                 continue

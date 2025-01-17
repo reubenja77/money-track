@@ -230,3 +230,5 @@ My mentor, Rory Sheridan, for his advice and guidance on how to approach this pr
         Clear function to clean-up the terminal so things don't get messy.
         """
         os.system("cls" if os.name == "nt" else "clear")
+
+I have been made aware that my git commit messages are too long and I will address this in my future projects.

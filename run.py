@@ -23,7 +23,7 @@ def introduction():
         "The app that helps you manage your personal finances "
         "by tracking your income and expenses.\n"
     )
-    print(Back.GREEN + Fore.WHITE + "Let's get you started!\n")
+    print(Back.WHITE + Fore.BLACK + "Let's get you started!\n")
 
 
 def get_user_choice():
@@ -155,7 +155,7 @@ def view_transactions(transactions):
     if not transactions:
         print("No transactions recorded yet.")
         return
-    print(Back.GREEN + Fore.WHITE + "\nRecorded Transactions:\n")
+    print(Back.GREEN + Fore.WHITE + "\nRecorded Transactions:")
     for i, transaction in enumerate(transactions, 1):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: Category: {transaction['category']} - "
@@ -211,7 +211,11 @@ def view_transactions_by_category(transactions):
     ]
 
     if not filtered_transactions:
-        print(f"\nNo transactions found for category: {category}")
+        print(
+            Back.RED + Fore.WHITE +
+            f"\nNo transactions found for category: {category}" +
+            Style.RESET_ALL
+        )
         return
 
     print(f"\n--- Transactions for Category '{category}' ---\n")

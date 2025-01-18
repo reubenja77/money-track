@@ -158,7 +158,7 @@ The App will perform the action which the User has selected:
 | ---------------- |------- | ------------- |
 | load_transactions() | The feature loads transactions to a JSON file | Uses try/except to handle file-related errors |
 | save_transactions(transactions) | The feature saves the current list of transactions to a JSON file | Ensures data persistence |
-| add_transaction(transactions) | The feature allows the User to add a new transaction (income or expense) | Validates inputs; Promts for transaction type, category and amount; Adds timestamp to each transaction; Highlights errors for invalid inputs |
+| add_transaction(transactions) | The feature allows the User to add a new transaction (Salary for income or Rent for expenses) | Validates inputs; Promts for transaction type, category and amount; Adds timestamp to each transaction; Highlights errors for invalid inputs |
 | view_transactions(transactions) | The feature displays all transactions in tabular format | Uses tabulate to present data in a readable table format; Differentiates between income and expenses using  appropriate labels |
 | delete_transaction(transactions) | The feature deletes specific transactions based on User input | Allows selecting multiple transactions for deletion using indices; Validates User input for valid transaction numbers; Asks for confirmation before deletion; Handles invalid confirmation inputs and promts the User again |
 | main_menu() | The feature acts as the central menu to navigate the App | Displays options for managing transactions; Handles User input and calls the appropriate function; Loops until the User chooses to quit |

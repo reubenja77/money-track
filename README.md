@@ -240,11 +240,18 @@ Select the branch you want to deploy your app from
 
 | No | Description  | Source | URL |
 | -- | ------------ | ------ | --- |
-| 1 | If/Else Statements | w3schools.com | https://www.w3schools.com/python/python_conditions.asp |
+| 1 | If/Else Statements | Video Tutorial; w3schools.com | https://www.youtube.com/watch?v=-BOBedcjySI https://www.w3schools.com/python/python_conditions.asp |
 | 2 | Loops | Video Tutorial portal stackoverflow.com | https://www.youtube.com/watch?v=zmIdC0_0BgY. https://stackoverflow.com/questions/69827626/python-program-that-loops-until-the-user-says-no-then-will-sum-all-transactions |
-| 3 | Try/Except Blocks | Video Tutorial python.org/ | https://www.youtube.com/watch?v=tIh42X0oGQc https://wiki.python.org/moin/HandlingExceptions |
-| 4 | Input Validation | Video Tutorial portal stackoverflow.com | https://www.youtube.com/watch?v=LUWyA3m_-r0 https://stackoverflow.com/questions/64669241/how-do-i-validate-a-users-input-and-make-sure-it-is-the-correct-type-and-within |
+| 3 | Try/Except Blocks | Video Tutorial; python.org/ | https://www.youtube.com/watch?v=tIh42X0oGQc https://wiki.python.org/moin/HandlingExceptions |
+| 4 | Input Validation | Video Tutorial; portal stackoverflow.com | https://www.youtube.com/watch?v=LUWyA3m_-r0 https://stackoverflow.com/questions/64669241/how-do-i-validate-a-users-input-and-make-sure-it-is-the-correct-type-and-within |
 | 5 | Listing recoded data | portal stackoverflow.com | https://stackoverflow.com/questions/65364473/pandas-sorting-transactions-into-categories |
+| 6 | Filtering transactions | Video Tutorial, portal stackoverflow.com | https://www.youtube.com/watch?v=MXQN6nnEwOU https://stackoverflow.com/questions/55562888/applying-filter-functions-on-a-dataframe |
+| 7 | Defining Functions in Python | Code Institute: LSM | https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+CPP_06_20+3/courseware/272f493b4d57445fbd634e7ceca3a98c/6327affd7b854149baab0d0fc59a2fcf/ |
+| 8 | Calling Functions | Code Institute: LSM | https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+CPP_06_20+3/courseware/272f493b4d57445fbd634e7ceca3a98c/6327affd7b854149baab0d0fc59a2fcf/ |
+| 9 | How to use Colorama | Video Tutorial; portal stackoverflow.com | https://www.youtube.com/watch?v=GPBUFMOXI6M https://stackoverflow.com/questions/9846683/how-to-install-colorama-in-python |
+| 10 | How to import os | Code Institute: LSM; Video Tutuorial | https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+CPP_06_20+3/courseware/272f493b4d57445fbd634e7ceca3a98c/4ab3e01af44f4bf2828739c1d0591a45/ https://www.youtube.com/watch?v=xQ7caEk8-5I |
+| 11 | Lists | Video Tutuorial; freecodecamp.org | https://www.youtube.com/watch?v=tSgWs9JdpAI https://www.youtube.com/watch?v=9OeznAkyQz4 https://www.freecodecamp.org/news/how-to-use-lists-in-python/ |
+| 12 | How to break long lines of code | Video Tutuorial; datacamp.com | https://www.youtube.com/watch?v=SzL2Oo3RktU https://www.datacamp.com/tutorial/how-to-line-break-in-python |
 
 
 ### Template

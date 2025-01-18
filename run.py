@@ -414,15 +414,20 @@ def delete_transaction(transactions):
                       f"Amount: ${abs(float(transaction['amount'])):.2f} | "
                       f"Date: {transaction['timestamp']}")
 
-            confirm = (
-                input(
+            while True:  # Repeat until a valid confirmation is given
+                confirm = input(
                     "\nAre you sure you want to delete "
                     "these transactions? (yes/no):\n"
-                )
-                .strip()
-                .lower()
-            )
-            if confirm != "yes":
+                ).strip().lower()
+
+                if confirm in ["yes", "no"]:
+                    break
+                print(Back.RED + Fore.WHITE + (
+                    "Invalid input. Please choose 'yes' or 'no'." +
+                    Style.RESET_ALL
+                ))
+
+            if confirm == "no":
                 print(Back.BLUE + Fore.WHITE + (
                     "\nNo transactions were deleted." +
                     Style.RESET_ALL
@@ -435,7 +440,8 @@ def delete_transaction(transactions):
 
             save_transactions(transactions)
             print(Back.GREEN + Fore.WHITE + (
-                "Selected transactions deleted successfully."
+                "Selected transactions deleted successfully." +
+                Style.RESET_ALL
             ))
             return
 

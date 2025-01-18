@@ -2,12 +2,6 @@
     {
         "type": "expense",
         "category": "rent",
-        "amount": "-100.00",
-        "timestamp": "2025-01-13 16:40:20"
-    },
-    {
-        "type": "expense",
-        "category": "rent",
         "amount": "-4500.30",
         "timestamp": "2025-01-15 10:32:55"
     },

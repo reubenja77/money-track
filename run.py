@@ -18,6 +18,14 @@ def clear():
 
 
 def introduction():
+    """
+    Prints a welcome message to the user introducing The Money Tracker App.
+
+    This function displays a greeting message and a brief explanation of
+    the App's purpose, helpins users understand what the application can
+    do for them. It utilises colorama to enhance the visual presentation
+    of the message.
+    """
     print("Welcome to The Money Tracker App!\n")
     print(
         "The app that helps you manage your personal finances "
@@ -28,9 +36,10 @@ def introduction():
 
 def get_user_choice():
     """
-    Display menu options and return user's choice.
+    Prompts user for a choice from the income and expense menu (1-7).
 
-    Returns an integer of User's menu choice.
+    Display menu options and validates user input until a valid
+    choice (1-7) is entered. Returns an integer of User's menu choice.
     """
     print("\nIncome and Expense Menu:\n")
     print("1. Add income or expense")
@@ -59,11 +68,24 @@ def get_user_choice():
 
 
 def save_transactions(transactions, filename="transactions.json"):
+    """
+    Saves transaction data to JSON file.
+
+    Serializes the provided 'transactions' list as a JSON object and
+    writes it to the specified 'filename' (defaults to 'transactions.json').
+    """
     with open(filename, "w") as file:
         json.dump(transactions, file, indent=4)
 
 
 def load_transactions(filename="transactions.json"):
+    """
+    Loads transaction data from a JSON file.
+
+    Attempts to read a JSON object from the specified 'filename'
+    (defaults to 'transactions.json') and returns the deserialized transaction
+    data as a list. Returns an empty list if the file is not found.
+    """
     try:
         with open(filename, "r") as file:
             return json.load(file)
@@ -73,10 +95,15 @@ def load_transactions(filename="transactions.json"):
 
 def add_transaction(transactions):
     """
-    Add an income or expense tranaction.
+    Prompts user for transaction details (type, category, amount) and
+    adds it to the transaction list.
+
+    Guides the user through the process of adding a new income or expense
+    transaction. Validates user input (transaction type, category, and amount)
+    and handles errors. Saves the updated transaction list to a JSON file.
 
     Args:
-        transactions (list): List of transaction records.
+        transactions (list): List of existing transaction to be updated.
     """
     clear()  # Clear the screen before displaying the Add Transaction
     # Loop to stay in "Add transaction" menu
@@ -95,10 +122,10 @@ def add_transaction(transactions):
                 print("Returning to the main menu...")
                 break  # Exit the loop and return to the main menu
             if transaction_type not in ["income", "expense"]:
-                print(
-                    "Invalid input. Please enter 'income', 'expense', "
-                    "or go 'back'."
-                )
+                print(Back.RED + Fore.WHITE + (
+                    "\nInvalid input. Please enter 'income', 'expense', "
+                    "or go 'back'." + Style.RESET_ALL
+                ))
                 continue
 
             category = (
@@ -147,7 +174,10 @@ def add_transaction(transactions):
 
 def view_transactions(transactions):
     """
-    Display all recorded transactions
+    Display all recorded transactions.
+
+    Prints a list of all transactions in the provided 'transactions' list,
+    including transaction type, category, and amount.
 
     Args:
         transactions (list): List of transaction records.
@@ -164,10 +194,15 @@ def view_transactions(transactions):
 
 def check_balance(transactions):
     """
-    Calculate and display current balance.
+    Calculate and displays the current balance.
+
+    Iterates through the provided 'transactions' list, sums the amounts
+    (considering income and expenses), and presents the total balance
+    in a visually appealing format using colorama.
 
     Args:
-        transactions (list): Lists of transaction records.
+        transactions (list): Lists of transactions to calculate
+        the balance from.
     """
     balance = sum(
         float(transaction["amount"])
@@ -184,20 +219,27 @@ def view_transactions_by_category(transactions):
     """
     Display transactions filtered by a specific category.
 
-    Args:
-        transactions (list): List of transaction dictionaries.
     This functions prompts users to enter a category and then filters the
     provided transactions list to include only those transactions that
     match the specified category.
     If no matching transactions are found, an appropriate message is displayed.
     Otherwise, the filtered transactions are displayed with their details.
+
+    Args:
+        transactions (list): List of transaction dictionaries.
     """
     if not transactions:
-        print(Back.BLUE + Fore.WHITE + "No transactions recorded yet!")
+        print(Back.RED + Fore.WHITE + (
+            "No transactions recorded yet!" + 
+            Style.RESET_ALL
+        ))
         return
 
     # Display all recorded transactions for context
-    print("\n--- All Recorded Transactions ---\n")
+    print(Back.BLUE + Fore.WHITE + (
+        "\n--- All Recorded Transactions ---\n" + 
+        Style.RESET_ALL
+    ))
     for i, transaction in enumerate(transactions, 1):
         t_type = transaction["type"].capitalize()
         print(f"{i}. {t_type}: {transaction['category']} - "
@@ -218,7 +260,11 @@ def view_transactions_by_category(transactions):
         )
         return
 
-    print(f"\n--- Transactions for Category '{category}' ---\n")
+    print(
+        Back.BLUE + Fore.WHITE +
+        f"\n--- Transactions for Category '{category}' ---\n" +
+        Style.RESET_ALL
+        )
     for i, transaction in enumerate(filtered_transactions, 1):
         t_type = transaction["type"].capitalize()
         amount = float(transaction["amount"])
@@ -231,13 +277,14 @@ def generate_monthly_report(transactions):
     """
     Generates a monthly summary of income and expenses.
 
-    Args:
-        transactions list: List of transaction dictionaries.
     This function calculates and displays the total income and expenses
     for each month recorded in the transactions history.
     It iterates through the transactions, groups then by month
     (YYYY-MM), and calculates the sum of amounts for each month.
     Finally, it displays the monthly summary in a user-friendly format.
+
+    Args:
+        transactions list: List of transaction dictionaries.
     """
     monthly_summary = {}
     for transaction in transactions:
@@ -256,8 +303,6 @@ def delete_transaction(transactions):
     """
     Deletes a specified transaction from the list of transactions.
 
-    Args:
-        transactions (list): List of transaction dictionaries.
     This functions first displays the list of transactions to the user.
     Then, it prompts the user to enter the number of the transaction
     they wish to delete.
@@ -265,6 +310,9 @@ def delete_transaction(transactions):
     transaction is removed from the list.
     The function includes input validation and error handling
     to ensure a smooth and safe deletion process.
+
+    Args:
+        transactions (list): List of transaction dictionaries.
     """
     if not transactions:
         print(Back.RED + Fore.WHITE + (
@@ -273,6 +321,14 @@ def delete_transaction(transactions):
         ))
         return
 
+    """
+    Iteratively prompts user to delete transactions until valid
+    input is provided.
+
+    Displays transactions and prompts user for transaction numbers to delete.
+    Continues to loop until the user enters valid input (a number or
+    comma-separated numbers).
+    """
     while True:
         view_transactions(transactions)
         try:

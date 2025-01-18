@@ -52,5 +52,17 @@
         "category": "rent",
         "amount": "-2999.90",
         "timestamp": "2025-01-17 16:55:33"
+    },
+    {
+        "type": "income",
+        "category": "salary",
+        "amount": "345829.49",
+        "timestamp": "2025-01-18 09:27:03"
+    },
+    {
+        "type": "expense",
+        "category": "food",
+        "amount": "-1238.30",
+        "timestamp": "2025-01-18 09:27:24"
     }
 ]

@@ -86,7 +86,7 @@ Before I started building the app, I mapped out the basic structure of the flowc
 The App will perform the action which the User has selected:
 - Add income or expense (Option 1)
     - The App will ask the User to specify whether they want to add "income" or "expense".
-    - The User can then enter the category of the transaction '(e.g., "Salary", "Rent", "Food")'.
+    - The User can then enter the category of the transaction '(e.g., "Salary", "Bonus")'.
     - The User will be prompted to enter the amount of the transaction.
     - The App will confirm the details and add the transaction to their records.
 
@@ -96,7 +96,11 @@ The App will perform the action which the User has selected:
 
 
 - View transactions (Option 2)
-    - This option will display a list of all their recorded transactions, including the type (income or expense), category, amount, and confirm category successfully added.
+    - The App will ask the User to specify whether they want to add "income" or "expense".
+    - The User can then enter the category of the transaction '(e.g., "Rent", "Food", "Transport", "Utilities", "Miscellanous")'.
+    - The User will be prompted to enter the amount of the transaction.
+    - The App will confirm the details and add the transaction to their records.
+    - This option will display a list of all their recorded transactions, including the type (expense), category, amount, and confirm category successfully added.
 
 ![App Terminal](assets/images/02-transaction-menu-select-option02.png)
 
@@ -158,7 +162,7 @@ The App will perform the action which the User has selected:
 | ---------------- |------- | ------------- |
 | load_transactions() | The feature loads transactions to a JSON file | Uses try/except to handle file-related errors |
 | save_transactions(transactions) | The feature saves the current list of transactions to a JSON file | Ensures data persistence |
-| add_transaction(transactions) | The feature allows the User to add a new transaction (Salary for income or Rent for expenses) | Validates inputs; Promts for transaction type, category and amount; Adds timestamp to each transaction; Highlights errors for invalid inputs |
+| add_transaction(transactions) | The feature allows the User to add a new transaction ("Salary" for income or "Rent" for expenses) | Validates inputs; Promts for transaction type, category and amount; Adds timestamp to each transaction; Highlights errors for invalid inputs |
 | view_transactions(transactions) | The feature displays all transactions in tabular format | Uses tabulate to present data in a readable table format; Differentiates between income and expenses using  appropriate labels |
 | delete_transaction(transactions) | The feature deletes specific transactions based on User input | Allows selecting multiple transactions for deletion using indices; Validates User input for valid transaction numbers; Asks for confirmation before deletion; Handles invalid confirmation inputs and promts the User again |
 | main_menu() | The feature acts as the central menu to navigate the App | Displays options for managing transactions; Handles User input and calls the appropriate function; Loops until the User chooses to quit |
@@ -167,6 +171,7 @@ The App will perform the action which the User has selected:
 ## Testing
 - Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any potential issues early on.
 - Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the User interface responded appropriately.
+- Testing was also done by friends and family to get feedback to improve User experience.
 - PEP8 Validator was used regulary to ensure that the code meets all necessary standards and specifications.
 - Bugs that were encountered during testing have been documented in the Bug section, detailing the nature of the issue and the solution.
 

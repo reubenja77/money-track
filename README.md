@@ -1,6 +1,6 @@
 # Money-Track: The Income & Expense Tracker App
 
-The objective of the Money-Track App is a simple and user-friendly income and expense tracking app, allowing users to easily input their income and expenses, categorize their expenses, view their spending history, and generate expense reports. The core mechanic of the app is to keep accurate records of the inflow and outflow of money.
+The objective of the Money-Track App is a simple and user-friendly income and expense tracking app, allowing Users to easily input their income and expenses, categorize their expenses, view their spending history, and generate expense reports. The core mechanic of the app is to keep accurate records of the inflow and outflow of money.
 
 ![Responsiveness](assets/images/responsive.webp) 
 
@@ -23,12 +23,12 @@ Although this project is primarily a terminal-based application, The Money Track
 
 ### Design
 <strong>Clear and concise interface:</strong>
-- <strong>The Menu-driven:</strong> The App utilizes a simple, numbered menu system, making it easy for users to navigate and select desired actions.
+- <strong>The Menu-driven:</strong> The App utilizes a simple, numbered menu system, making it easy for Users to navigate and select desired actions.
 - <strong>Minimalist design:</strong> The interface likely focuses on essential information, avoiding clutter and distractions.
 
 <strong>User guidance:</strong>
-- <strong>Clear instructions:</strong> The App provides clear instructions and prompts at each step, guiding users through the process of adding, viewing, and managing transactions.
-- <strong>Error handling:</strong> The App includes robust error handling mechanisms with informatinve error messages, guiding users towards correct input.
+- <strong>Clear instructions:</strong> The App provides clear instructions and prompts at each step, guiding Users through the process of adding, viewing, and managing transactions.
+- <strong>Error handling:</strong> The App includes robust error handling mechanisms with informatinve error messages, guiding Users towards correct input.
 
 <strong>Visual feedback:</strong>
 - <strong>Clear formatting:</strong> Transation data is presented in a well-organised and easy-to-read format, improving data comprehension.
@@ -36,11 +36,11 @@ Although this project is primarily a terminal-based application, The Money Track
 The color Green is used as it represents growth and prosperity, the color Blue represents trust and the color Red represents a warning signal.
 
 <strong>Data persistence:</strong>
-- <strong>Data saving:</strong> The App saves transaction data to a JSON file, ensuring data persistence and allowing users to continue tracking their finances across sessions.
+- <strong>Data saving:</strong> The App saves transaction data to a JSON file, ensuring data persistence and allowing Users to continue tracking their finances across sessions.
 
 <strong>User control:</strong>
-- <strong>Flexibility:</strong> The App offers users flexibility in managing their transactions, allowing them to add, view, filter, delete, generate reports, and exit the program.
-- <strong>Confirmation:</strong> The App includes confirmation prompts before deleting transactions, ensuring users are certain about their actions.
+- <strong>Flexibility:</strong> The App offers Users flexibility in managing their transactions, allowing them to add, view, filter, delete, generate reports, and exit the program.
+- <strong>Confirmation:</strong> The App includes confirmation prompts before deleting transactions, ensuring Users are certain about their actions.
 
 These UX design considerations contribute to a more intuitive and enjoyable user experience, making The Money Tracker App easier to use and more effective for managing personal finances.
 
@@ -152,9 +152,21 @@ The App will perform the action which the User has selected:
 - The App saves the Users transaction data in a file named "transactions.json" whenever they add, edit, or delete a transaction. This ensures that their data is persistent and doesn't disappear when they close the App.
 
 
+### Feature overview:
+
+| function name(s) | Description  | Key Features |
+| ---------------- |------- | ------------- |
+| load_transactions() | The feature loads transactions to a JSON file | Uses try/except to handle file-related errors |
+| save_transactions(transactions) | The feature saves the current list of transactions to a JSON file | Ensures data persistence |
+| add_transaction(transactions) | The feature allows the User to add a new transaction (income or expense) | Validates inputs; Promts for transaction type, category and amount; Adds timestamp to each transaction; Highlights errors for invalid inputs |
+| view_transactions(transactions) | The feature displays all transactions in tabular format | Uses tabulate to present data in a readable table format; Differentiates between income and expenses using  appropriate labels |
+| delete_transaction(transactions) | The feature deletes specific transactions based on User input | Allows selecting multiple transactions for deletion using indices; Validates User input for valid transaction numbers; Asks for confirmation before deletion; Handles invalid confirmation inputs and promts the User again |
+| main_menu() | The feature acts as the central menu to navigate the App | Displays options for managing transactions; Handles User input and calls the appropriate function; Loops until the User chooses to quit |
+
+
 ## Testing
 - Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any potential issues early on.
-- Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the user interface responded appropriately.
+- Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the User interface responded appropriately.
 - PEP8 Validator was used regulary to ensure that the code meets all necessary standards and specifications.
 - Bugs that were encountered during testing have been documented in the Bug section, detailing the nature of the issue and the solution.
 

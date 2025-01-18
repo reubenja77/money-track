@@ -152,10 +152,13 @@ The App will perform the action the User selected:
 
 
 ## Testing
+- Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any potential issues early on.
+- Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the user interface responded appropriately.
+- PEP8 Validator was used regulary to ensure that the code meets all necessary standards and specifications.
+- Bugs that were encountered during testing have been thoroughly documented in the Bug section, detailing the nature of the issue and the steps taken to resolve it.
 
 
-
-## Bugs (fixed)
+### Bugs (fixed)
 
 | Bug | Description  | Screenshot | Correction |
 | --- |------------- | ----------------- | -----------|
@@ -250,7 +253,7 @@ The Python Essentials Template from Code Institute was used to create my Github 
 https://github.com/Code-Institute-Org/p3-template
 
 ### Acknowledgements:
-My mentor, Rory Sheridan, for his advice and guidance on how to approach this project. He also introduced a code snippet to clear the terminal to get rid of any code clutter:
+My mentor, Rory Sheridan, for his advice and guidance throughout this project. He also introduced me to colorama for generating color to the terminal messaging as well as a code snippet to clear the terminal to get rid of any code clutter:
 
     def clear():
         """
@@ -258,4 +261,6 @@ My mentor, Rory Sheridan, for his advice and guidance on how to approach this pr
         """
         os.system("cls" if os.name == "nt" else "clear")
 
-I have been made aware that my git commit messages are too long and I will address this in my future projects.
+This project contains some commit messages that are longer than the ideal length. This was done to provide more context and clarity for specific changes, especially those involving complex refactorings or bug fixes.
+
+I understand that concise commit messages are generally preferred, and I will strive to improve the conciseness of future commit messages.

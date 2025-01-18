@@ -17,6 +17,33 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 ### Return Users:
 - As a return user, I would like to keep a monthly track of my income and expenses.
 
+
+## UX Design
+Although this project is primarily terminal based, The Money Tracker App is designed to provide a user-friendly experience with key UX design considered prinicples:
+
+### Design
+<strong>Clear and concise interface:</strong>
+- <strong>The Menu-driven:</strong> The App utilizes a simple, numbered menu system, making it easy for users to navigate and select desired actions.
+- <strong>Minimalist design:</strong> The interface likely focuses on essential information, avoiding clutter and distractions.
+
+<strong>User guidance:</strong>
+- <strong>Clear instructions:</strong> The App provides clear instructions and prompts at each step, guiding users through the process of adding, viewing, and managing transactions.
+- <strong>Error handling:</strong> The App includes robust error handling mechanisms with informatinve error messages, guiding users towards correct input.
+
+<strong>Visual feedback:</strong>
+- <strong>Colorama:</strong> The use of colorama enhances the user experience by providing visual cues through colored text. For example, green for success messsages, red for errors, and blue for informational messages.
+- <strong>Clear formatting:</strong> Transation data is presented in a well-organised and easy-to-read format, improving data comprehension.
+
+<strong>Data persistence:</strong>
+- <strong>Data saving:</strong> The App saves transaction data to a JSON file, ensuring data persistence and allowing users to continue tracking their finances across sessions.
+
+<strong>User control:</strong>
+- <strong>Flexibility:</strong> The App offers users flexibility in managing their transactions, allowing them to add, view, filter, delete, generate reports, and exit the program.
+- <strong>Confirmation:</strong> The App includes confirmation prompts before deleting transactions, ensuring users are certain about their actions.
+
+These UX design considerations contribute to a more intuitive and enjoyable user experience, making The Money Tracker App easier to use and more effective for managing personal finances.
+
+
 ### App Flowchart (created on LucidApp):
 
 Before I started building the app, I mapped out the basic structure of the flowchart and I used LucidApp to create the flowchart.
@@ -36,7 +63,7 @@ Before I started building the app, I mapped out the basic structure of the flowc
 
 
 ##### MAIN MENU
-- The app presents the User with a menu of options:
+- The App presents the User with a menu of options:
     1. Add income or expense
     2. View transactions
     3. Check balance
@@ -62,7 +89,7 @@ The App will perform the action the User selected:
     - The User will be prompted to enter the amount of the transaction.
     - The App will confirm the details and add the transaction to their records.
 
-![App Terminal](assets/images/02-transaction-menu-select-option02.png)
+![App Terminal](assets/images/02-transaction-menu-select-option01.png)
 
 -----
 

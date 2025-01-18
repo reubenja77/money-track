@@ -105,7 +105,12 @@ def add_transaction(transactions):
     Args:
         transactions (list): List of existing transaction to be updated.
     """
-    clear()  # Clear the screen before displaying the Add Transaction
+    clear()  # Clear the screen before displaying the Add Transaction Menu
+    valid_income_categories = ["Salary", "Bonus"]
+    valid_expense_categories = [
+        "Rent", "Food", "Transport", "Utilities", "Miscellanous"
+    ]
+
     # Loop to stay in "Add transaction" menu
     while True:
         try:
@@ -128,17 +133,47 @@ def add_transaction(transactions):
                 ))
                 continue
 
-            category = (
-                input(
-                    "\nEnter the transaction category "
-                    "(e.g., 'Salary', 'Rent', 'Food'):\n"
+            # Set valid categories based on the transaction type
+            if transaction_type == "income":
+                valid_categories = valid_income_categories
+            else:
+                valid_categories = valid_expense_categories
+
+            while True:
+                category = (
+                    input(
+                        "\nEnter the transaction category "
+                        f"(e.g., {', '.join(valid_categories)}):\n"
+                    )
+                    .strip()
+                    .title()
                 )
-                .strip()
-            )
-            amount = float(input("\nEnter the amount:\n"))
-            if amount <= 0:
-                print("Amount must be greater than 0.")
-                continue
+                if category in valid_categories:
+                    break  # Validate category entered
+                else:
+                    print(
+                        Back.RED + Fore.WHITE + (
+                            "\nInvalid input. \nPlease enter a valid "
+                            f"transaction category "
+                            f"(e.g., {', '.join(valid_categories)})."
+                        )
+                        + Style.RESET_ALL
+                    )
+
+            while True:
+                try:
+                    amount = float(input("\nEnter the amount:\n"))
+                    if amount <= 0:
+                        print(
+                            Back.RED + Fore.WHITE +
+                            "Amount must be greater than 0." + Style.RESET_ALL
+                        )
+                        continue
+                    break
+                except ValueError:
+                    print(Back.RED + Fore.WHITE + (
+                        "\nInvalid input. Please enter a numeric value."
+                    ) + Style.RESET_ALL)
 
             # Negative value for expenses
             if transaction_type == "expense":
@@ -168,8 +203,15 @@ def add_transaction(transactions):
             input("\nPress Enter to continue...")
             clear()  # Clear the screen after exiting the Add Transaction
 
-        except ValueError:
-            print("Invalid input. Please enter valid details.")
+        except Exception:
+            print(
+                Back.RED + Fore.WHITE +
+                "\nInvalid input. Please enter a "
+                "numeric value for amount. "
+                "For example, enter '100.50' instead of "
+                "letters like 'abc' or 'can'." +
+                Style.RESET_ALL
+            )
 
 
 def view_transactions(transactions):
@@ -257,7 +299,7 @@ def view_transactions_by_category(transactions):
         category = input("\nEnter the category to filter by:\n").strip()
         filtered_transactions = [
             t for t in transactions
-            if t["category"].lower() == category.lower()
+            if t["category"].title() == category.title()
         ]
 
         if not filtered_transactions:

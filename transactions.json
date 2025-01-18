@@ -1,62 +1,8 @@
 [
     {
-        "type": "expense",
-        "category": "rent",
-        "amount": "-4500.30",
-        "timestamp": "2025-01-15 10:32:55"
-    },
-    {
-        "type": "expense",
-        "category": "food",
-        "amount": "-2450.00",
-        "timestamp": "2025-01-15 10:33:18"
-    },
-    {
-        "type": "expense",
-        "category": "rent",
-        "amount": "-450.12",
-        "timestamp": "2025-01-15 13:31:28"
-    },
-    {
-        "type": "expense",
-        "category": "rent",
-        "amount": "-2367.32",
-        "timestamp": "2025-01-15 14:21:39"
-    },
-    {
-        "type": "expense",
-        "category": "rent",
-        "amount": "-2119.87",
-        "timestamp": "2025-01-15 14:23:41"
-    },
-    {
-        "type": "expense",
-        "category": "garden service",
-        "amount": "-4839.00",
-        "timestamp": "2025-01-15 15:42:47"
-    },
-    {
-        "type": "expense",
-        "category": "garden service",
-        "amount": "-2399.54",
-        "timestamp": "2025-01-15 19:23:38"
-    },
-    {
-        "type": "expense",
-        "category": "rent",
-        "amount": "-2999.90",
-        "timestamp": "2025-01-17 16:55:33"
-    },
-    {
         "type": "income",
-        "category": "salary",
-        "amount": "345829.49",
-        "timestamp": "2025-01-18 09:27:03"
-    },
-    {
-        "type": "expense",
-        "category": "food",
-        "amount": "-1238.30",
-        "timestamp": "2025-01-18 09:27:24"
+        "category": "Salary",
+        "amount": "58800.00",
+        "timestamp": "2025-01-18 22:41:07"
     }
 ]

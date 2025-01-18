@@ -19,7 +19,7 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 
 
 ## UX Design
-Although this project is primarily terminal based, The Money Tracker App is designed to provide a user-friendly experience with key UX design considered prinicples:
+Although this project is primarily a terminal-based application, The Money Tracker App is designed to provide a user-friendly experience with key UX design prinicples taken into consideration:
 
 ### Design
 <strong>Clear and concise interface:</strong>
@@ -31,8 +31,9 @@ Although this project is primarily terminal based, The Money Tracker App is desi
 - <strong>Error handling:</strong> The App includes robust error handling mechanisms with informatinve error messages, guiding users towards correct input.
 
 <strong>Visual feedback:</strong>
-- <strong>Colorama:</strong> The use of colorama enhances the user experience by providing visual cues through colored text. For example, green for success messsages, red for errors, and blue for informational messages.
 - <strong>Clear formatting:</strong> Transation data is presented in a well-organised and easy-to-read format, improving data comprehension.
+- <strong>Colorama:</strong> The use of colorama enhances the user experience by providing visual cues through colored text. For example, Green for success messsages, Red for errors, and Blue for informational messages.
+The color Green is used as it represents growth and prosperity, the color Blue represents trust and the color Red represents a warning signal.
 
 <strong>Data persistence:</strong>
 - <strong>Data saving:</strong> The App saves transaction data to a JSON file, ensuring data persistence and allowing users to continue tracking their finances across sessions.
@@ -82,10 +83,10 @@ Before I started building the app, I mapped out the basic structure of the flowc
 
 
 ##### USER CHOICE
-The App will perform the action the User selected:
+The App will perform the action which the User has selected:
 - Add income or expense (Option 1)
     - The App will ask the User to specify whether they want to add "income" or "expense".
-    - The User can then enter the category of the transaction (e.g., "Salary", "Rent", "Food").
+    - The User can then enter the category of the transaction '(e.g., "Salary", "Rent", "Food")'.
     - The User will be prompted to enter the amount of the transaction.
     - The App will confirm the details and add the transaction to their records.
 
@@ -95,7 +96,7 @@ The App will perform the action the User selected:
 
 
 - View transactions (Option 2)
-    - This option will display a list of all their recorded transactions, including the type (income or expense), category, amount, and date.
+    - This option will display a list of all their recorded transactions, including the type (income or expense), category, amount, and confirm category successfully added.
 
 ![App Terminal](assets/images/02-transaction-menu-select-option02.png)
 
@@ -112,7 +113,7 @@ The App will perform the action the User selected:
 
 - View transactions by category (Option 4)
     - The User can view their transactions filtered by a specific category.
-    - The App will first display a list of all their transactions.
+    - The App will first display a list of all their recorded transactions.
     - Then, the User will be prompted to enter the category they want to see.
     - The App will then display only the transactions that belong to that category.
 
@@ -155,28 +156,32 @@ The App will perform the action the User selected:
 - Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any potential issues early on.
 - Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the user interface responded appropriately.
 - PEP8 Validator was used regulary to ensure that the code meets all necessary standards and specifications.
-- Bugs that were encountered during testing have been thoroughly documented in the Bug section, detailing the nature of the issue and the steps taken to resolve it.
+- Bugs that were encountered during testing have been documented in the Bug section, detailing the nature of the issue and the solution.
 
 
 ### Bugs (fixed)
 
-| Bug | Description  | Screenshot | Correction |
+| Bug | Description  | Issues | Fixed |
 | --- |------------- | ----------------- | -----------|
 | SyntaxError | Incorrect operator used to check if integer selection | ![screenshot](assets/images/error-02.png) | ![screenshot](assets/images/error-02-fixed.png) |
+| NameError in the add_transaction function | 'description = input' not defined | ![screenshot](assets/images/name-error-03.png) | ![screenshot](assets/images/name-error-03-fixed.png) |
+| KeyError in the check_balance function | Incorrect string "formatted_amount" used instead of "amount" | ![screenshot](assets/images/error-04.png) | ![screenshot](assets/images/error-04-fixed.png) |
 | KeyError in check_balance function | Incorrect string "formatted_amount" used instead of "amount" | ![screenshot](assets/images/error-04.png) | ![screenshot](assets/images/error-04-fixed.png) |
-| KeyError in check_balance function | Incorrect string "formatted_amount" used instead of "amount" | ![screenshot](assets/images/error-04.png) | ![screenshot](assets/images/error-04-fixed.png) |
-| NameError in add_transaction function | The function was incorrectly named as "save_transactions(transaction)" instead of "save_transactions(transactions)" | ![screenshot](assets/images/error-05.png) | ![screenshot](assets/images/error-05-fixed.png) |
+| NameError in the add_transaction function | The function was incorrectly named as "save_transactions(transaction)" instead of "save_transactions(transactions)" | ![screenshot](assets/images/error-05.png) | ![screenshot](assets/images/error-05-fixed.png) |
 | TypeError in view_transactions_by_category function | List indices was a string and not an integer or slice | ![screenshot](assets/images/error-06.png) | ![screenshot](assets/images/error-06-fixed.png) |
+| NameError with import os | os.system not correctly called by import request | ![screenshot](assets/images/name-error-error-07.png) | ![screenshot](assets/images/error-07-fixed.png) |
+| IndexError in the delete_transaction function | os.system not correctly called by import request | ![screenshot](assets/images/index-error-08.png) | ![screenshot](assets/images/error-08-fixed.png) |
+| NameError in the view_transaction function | the try block was not correctly named | ![screenshot](assets/images/name-error-09.png) | ![screenshot](assets/images/error-09-fixed.png) |
 
 
 
 ## Validation
-
-#### [CI Python validator](https://pep8ci.herokuapp.com/)
+Validator testing has been done on: [CI Python validator](https://pep8ci.herokuapp.com/)
 
 | File | screenshot | Notes |                                                                                                 |
 | --- | --- | --- | ----------------------------------------------------------------------------------------------------------|
 | run.py  | ![screenshot](assets/images/pep8.png) |  All clear, no errors found |
+
 
 ## Tools & Technologies used
 

@@ -230,14 +230,14 @@ def view_transactions_by_category(transactions):
     """
     if not transactions:
         print(Back.RED + Fore.WHITE + (
-            "No transactions recorded yet!" + 
+            "No transactions recorded yet!" +
             Style.RESET_ALL
         ))
         return
 
     # Display all recorded transactions for context
     print(Back.BLUE + Fore.WHITE + (
-        "\n--- All Recorded Transactions ---\n" + 
+        "\n--- All Recorded Transactions ---\n" +
         Style.RESET_ALL
     ))
     for i, transaction in enumerate(transactions, 1):

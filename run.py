@@ -247,30 +247,36 @@ def view_transactions_by_category(transactions):
               f"Date: {transaction['timestamp']}")
 
     # Filter transactions by category
-    category = input("\nEnter the category to filter by:\n").strip()
-    filtered_transactions = [
-        t for t in transactions if t["category"].lower() == category.lower()
-    ]
+    while True:
+        category = input("\nEnter the category to filter by:\n").strip()
+        filtered_transactions = [
+            t for t in transactions
+            if t["category"].lower() == category.lower()
+        ]
 
-    if not filtered_transactions:
+        if not filtered_transactions:
+            print(
+                Back.RED + Fore.WHITE +
+                f"\nNo transactions found for category: {category}"
+                f"\nPlease enter a transaction category "
+                f"(e.g., 'Salary', 'Rent', 'Food'):\n" +
+                Style.RESET_ALL
+            )
+            continue  # Stay in the loop if input is invalid
+
+        # Display filtered transactions if found
         print(
-            Back.RED + Fore.WHITE +
-            f"\nNo transactions found for category: {category}" +
+            Back.BLUE + Fore.WHITE +
+            f"\n--- Transactions for Category '{category}' ---\n" +
             Style.RESET_ALL
-        )
-        return
-
-    print(
-        Back.BLUE + Fore.WHITE +
-        f"\n--- Transactions for Category '{category}' ---\n" +
-        Style.RESET_ALL
-        )
-    for i, transaction in enumerate(filtered_transactions, 1):
-        t_type = transaction["type"].capitalize()
-        amount = float(transaction["amount"])
-        # Ensure amount is a float
-        print(f"{i}. {t_type}: ${abs(amount):.2f} - "
-              f"Date: {transaction['timestamp']}")
+            )
+        for i, transaction in enumerate(filtered_transactions, 1):
+            t_type = transaction["type"].capitalize()
+            amount = float(transaction["amount"])
+            # Ensure amount is a float
+            print(f"{i}. {t_type}: ${abs(amount):.2f} - "
+                  f"Date: {transaction['timestamp']}")
+        break  # Exit the loop after displaying valid results
 
 
 def generate_monthly_report(transactions):

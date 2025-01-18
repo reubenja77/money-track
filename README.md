@@ -1,4 +1,4 @@
-# Money-Track: The Income & Expense Tracker App
+# The Money-Track: The Income & Expense Tracker App
 
 The objective of the Money-Track App is a simple and user-friendly income and expense tracking app, allowing Users to easily input their income and expenses, categorize their expenses, view their spending history, and generate expense reports. The core mechanic of the app is to keep accurate records of the inflow and outflow of money.
 
@@ -19,7 +19,7 @@ The objective of the Money-Track App is a simple and user-friendly income and ex
 
 
 ## UX Design
-Although this project is primarily a terminal-based application, The Money Tracker App is designed to provide a user-friendly experience with key UX design prinicples taken into consideration:
+Although this project is primarily a terminal-based application, The Money Track App is designed to provide a user-friendly experience with key UX design prinicples taken into consideration:
 
 ### Design
 <strong>Clear and concise interface:</strong>
@@ -42,7 +42,7 @@ The color Green is used as it represents growth and prosperity, the color Blue r
 - <strong>Flexibility:</strong> The App offers Users flexibility in managing their transactions, allowing them to add, view, filter, delete, generate reports, and exit the program.
 - <strong>Confirmation:</strong> The App includes confirmation prompts before deleting transactions, ensuring Users are certain about their actions.
 
-These UX design considerations contribute to a more intuitive and enjoyable user experience, making The Money Tracker App easier to use and more effective for managing personal finances.
+These UX design considerations contribute to a more intuitive and enjoyable user experience, making The Money Track App easier to use and more effective for managing personal finances.
 
 
 ### App Flowchart (created on LucidApp):
@@ -60,7 +60,7 @@ Before I started building the app, I mapped out the basic structure of the flowc
 - The 'clear' function defines to clear the terminal screen using os.system for clarity.
 
 ##### INTRODUCTION
-- The App welcomes the User and introduces itself as The Money Tracker App that helps the User manage their personal finances.
+- The App welcomes the User and introduces itself as The Money Track App that helps the User manage their personal finances.
 
 
 ##### MAIN MENU

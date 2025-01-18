@@ -1,4 +1,4 @@
-# Money Tracker App (Income and Expense Tracker)
+# Money Track App (Income and Expense Tracker)
 
 import os
 import json
@@ -19,14 +19,14 @@ def clear():
 
 def introduction():
     """
-    Prints a welcome message to the user introducing The Money Tracker App.
+    Prints a welcome message to the user introducing The Money Track App.
 
     This function displays a greeting message and a brief explanation of
     the App's purpose, helpins users understand what the application can
     do for them. It utilises colorama to enhance the visual presentation
     of the message.
     """
-    print("Welcome to The Money Tracker App!\n")
+    print("Welcome to The Money Track App!\n")
     print(
         "The app that helps you manage your personal finances "
         "by tracking your income and expenses.\n"
@@ -475,7 +475,7 @@ def main():
         elif choice == 6:
             delete_transaction(transactions)
         elif choice == 7:
-            print("\nExiting The Money Tracker.\nGoodbye!\n")
+            print("\nExiting The Money Track.\nGoodbye!\n")
             break
 
 

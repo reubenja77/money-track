@@ -1,6 +1,6 @@
 # The Money-Track App: The Income & Expense Tracker App
 
-Welcome to The Money Track App. The objective of the Money-Track App is a simple and user-friendly income and expense tracking app, allowing Users to easily input their income and expenses, categorize their expenses, view their spending history, generate expense reports and delte transactions. The core mechanic of the App is to keep accurate records of the inflow and outflow of money.
+Welcome to The Money Track App. The objective of the Money-Track App is a simple and user-friendly income and expense tracking app, allowing Users to easily input their income and expenses, categorize their expenses, view their spending history, generate expense reports and delete transactions. The core mechanic of the App is to keep accurate records of the inflow and outflow of money.
 
 ![Responsiveness](assets/images/responsive.webp) 
 
@@ -26,7 +26,7 @@ Although this project is primarily a terminal-based application, The Money Track
 
 ### Design
 <strong>Clear and concise interface:</strong>
-- <strong>The Menu-driven:</strong> The App utilizes a simple, numbered menu system, making it easy for Users to navigate and select desired actions.
+- <strong>Menu-driven:</strong> The App utilizes a simple, numbered menu system, making it easy for Users to navigate and select desired actions.
 - <strong>Minimalist design:</strong> The interface focuses on essential information, avoiding clutter and distractions.
 
 <strong>User guidance:</strong>
@@ -99,7 +99,7 @@ The App will perform the action which the User has selected:
 -----
 
 ##### RETURN TO 'MAIN MENU'
-- The User can return to the 'Main Menu' by typing 'back'
+- The User can return to the 'Main Menu' by typing 'back'.
 
 ![App Terminal](assets/images/03-return-main-menu-screen.png)
 
@@ -170,7 +170,7 @@ The App will perform the action which the User has selected:
 
 
 ## Testing
-- Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any potential issues early on.
+- Testing was conducted regularly throughout the development process as well as at the end of the project to ensure functionality and identify any issues.
 - Manual input testing was carried out to simulate real-world usage of the application. This involved entering data manually into the terminal system to ensure that all inputs were handled correctly and that the User interface responded appropriately.
 - Testing was also done by friends and family to get feedback to improve User experience.
 - PEP8 Validator was used regulary to ensure that the code meets all necessary standards and specifications.

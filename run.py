@@ -336,10 +336,18 @@ def generate_monthly_report(transactions):
     It iterates through the transactions, groups then by month
     (YYYY-MM), and calculates the sum of amounts for each month.
     Finally, it displays the monthly summary in a user-friendly format.
+    If no transactions are recorded, the user will be notified accordingly.
 
     Args:
         transactions list: List of transaction dictionaries.
     """
+    if not transactions:
+        print(Back.BLUE + Fore.WHITE + (
+            "\nNo transactions recorded yet."
+            + Style.RESET_ALL
+        ))
+        return
+
     monthly_summary = {}
     for transaction in transactions:
         month = transaction["timestamp"][:7]

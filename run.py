@@ -277,7 +277,7 @@ def view_transactions_by_category(transactions):
         transactions (list): List of transaction dictionaries.
     """
     if not transactions:
-        print(Back.RED + Fore.WHITE + (
+        print(Back.BLUE + Fore.WHITE + (
             "No transactions recorded yet!" +
             Style.RESET_ALL
         ))
@@ -377,7 +377,7 @@ def delete_transaction(transactions):
         transactions (list): List of transaction dictionaries.
     """
     if not transactions:
-        print(Back.RED + Fore.WHITE + (
+        print(Back.BLUE + Fore.WHITE + (
             "No transactions recorded yet to be deleted."
             + Style.RESET_ALL
         ))
